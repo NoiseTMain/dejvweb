@@ -1,83 +1,693 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="cs" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
-    <style>
-        :root {
-            --primary-orange: #ff9f43;
-            --primary-blue: #54a0ff;
-            --primary-green: #1dd1a1;
-            --bg-color: #f0f9ff;
-            --card-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zábavní Servis 365 | Kompletní zábava pro každou párty</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- AOS Animation CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Nunito', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            turquoise: '#42D4E8',
+                            yellow: '#FFD54F',
+                            orange: '#FF9800',
+                            green: '#81C784',
+                            pastelBlue: '#E0F7FA',
+                            pastelYellow: '#FFF9C4',
+                            pastelPink: '#FCE4EC',
+                            pastelGreen: '#E8F5E9',
+                            pastelPurple: '#F3E5F5',
+                            dark: '#1E293B'
+                        }
+                    },
+                    borderRadius: {
+                        '4xl': '30px',
+                    },
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'glow': '0 0 20px rgba(66, 212, 232, 0.4)',
+                    }
+                }
+            }
         }
-        body { font-family: 'Segoe UI', sans-serif; background-color: var(--bg-color); margin: 0; }
-        
-        /* Navigace */
-        header { background: white; padding: 20px 5%; display: flex; justify-content: space-between; align-items: center; border-bottom: 5px solid var(--primary-orange); }
-        .menu a { margin: 0 15px; font-weight: bold; color: #333; text-decoration: none; }
+    </script>
 
-        /* Hero sekce */
-        .hero { background: linear-gradient(135deg, #ff9f43, #ff6b6b); color: white; padding: 80px 20px; text-align: center; border-radius: 0 0 50px 50px; }
-        .btn { padding: 15px 30px; border-radius: 30px; border: none; font-weight: bold; cursor: pointer; margin: 10px; }
-        
-        /* Služby - karty */
-        .services-row { display: flex; justify-content: center; gap: 20px; margin-top: -50px; padding: 0 20px; }
-        .card { background: white; padding: 25px; border-radius: 30px; box-shadow: var(--card-shadow); text-align: center; width: 200px; }
+    <style>
+        /* Custom Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+        .animate-float-delayed {
+            animation: float 4s ease-in-out 2s infinite;
+        }
 
-        /* Hlavní layout */
-        .content { display: grid; grid-template-columns: 2fr 1fr; gap: 40px; padding: 50px 5%; }
-        .box { background: white; padding: 30px; border-radius: 30px; margin-bottom: 30px; box-shadow: var(--card-shadow); }
-        
-        footer { background: #333; color: white; text-align: center; padding: 20px; }
+        /* Hide scrollbar for carousel but keep functionality */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        /* Gradient overlay for hero text readability */
+        .hero-gradient {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.4) 40%, rgba(0,0,0,0) 100%);
+        }
     </style>
 </head>
-<body>
+<body class="font-sans text-gray-700 bg-slate-50 antialiased overflow-x-hidden">
 
-<header>
-    <div style="font-size: 24px; font-weight: bold; color: var(--primary-blue);">ZÁBAVNÍ SERVIS 365</div>
-    <div class="menu">
-        <a href="#">DOMŮ</a><a href="#">MASKOTI</a><a href="#">VATA</a><a href="#">KONTAKT</a>
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center cursor-pointer">
+                    <span class="text-2xl font-black text-brand-dark tracking-tight">
+                        Zábavní <span class="text-brand-turquoise">Servis</span> <span class="text-brand-orange">365</span>
+                    </span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#domu" class="text-gray-600 hover:text-brand-turquoise font-bold transition">Domů</a>
+                    <a href="#sluzby" class="text-gray-600 hover:text-brand-turquoise font-bold transition">Služby</a>
+                    <a href="#maskoti" class="text-gray-600 hover:text-brand-turquoise font-bold transition">Maskoti</a>
+                    <a href="#galerie" class="text-gray-600 hover:text-brand-turquoise font-bold transition">Galerie</a>
+                    <a href="#cenik" class="text-gray-600 hover:text-brand-turquoise font-bold transition">Ceník</a>
+                    <a href="#kontakt" class="bg-brand-turquoise text-white px-6 py-3 rounded-full font-bold hover:bg-cyan-400 hover:shadow-glow transform hover:-translate-y-1 transition-all duration-300">Poptávka</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-turquoise focus:outline-none text-2xl">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-gray-100 absolute w-full shadow-lg">
+            <div class="px-4 pt-2 pb-6 space-y-2 flex flex-col">
+                <a href="#domu" class="block px-3 py-2 text-gray-800 font-bold hover:bg-brand-pastelBlue rounded-xl">Domů</a>
+                <a href="#sluzby" class="block px-3 py-2 text-gray-800 font-bold hover:bg-brand-pastelBlue rounded-xl">Služby</a>
+                <a href="#maskoti" class="block px-3 py-2 text-gray-800 font-bold hover:bg-brand-pastelBlue rounded-xl">Maskoti</a>
+                <a href="#galerie" class="block px-3 py-2 text-gray-800 font-bold hover:bg-brand-pastelBlue rounded-xl">Galerie</a>
+                <a href="#cenik" class="block px-3 py-2 text-gray-800 font-bold hover:bg-brand-pastelBlue rounded-xl">Ceník</a>
+                <a href="#kontakt" class="block px-3 py-3 text-center bg-brand-turquoise text-white font-bold rounded-xl mt-4">Poptávka</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="domu" class="relative min-h-screen flex items-end justify-center pt-20 pb-24 lg:pb-32 bg-cover bg-center bg-fixed" style="background-image: url('https://images.unsplash.com/photo-1530103862676-de8892bc952f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
+        <div class="absolute inset-0 hero-gradient z-0"></div>
+        
+        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto" data-aos="fade-up" data-aos-duration="1000">
+            <div class="inline-block mb-4 px-4 py-1.5 bg-brand-yellow/90 backdrop-blur text-brand-dark font-extrabold rounded-full text-sm uppercase tracking-wider animate-bounce">
+                🎉 Váš kouzelný zážitek začíná
+            </div>
+            <h1 class="text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight text-shadow-lg">
+                KOMPLETNÍ ZÁBAVA PRO KAŽDOU PÁRTY
+            </h1>
+            <p class="text-2xl md:text-3xl text-gray-200 font-bold mb-10 text-shadow">
+                Vše na jednom místě.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#kontakt" class="bg-brand-green text-white px-8 py-4 rounded-4xl font-extrabold text-lg hover:bg-green-500 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    Vytvořit poptávku
+                </a>
+                <a href="#cenik" class="bg-brand-orange text-white px-8 py-4 rounded-4xl font-extrabold text-lg hover:bg-orange-500 hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300">
+                    Prohlédnout balíčky
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="sluzby" class="py-20 lg:py-32 bg-white relative">
+        <!-- Floating decors -->
+        <div class="absolute top-10 left-10 text-brand-yellow text-4xl animate-float opacity-50"><i class="fa-solid fa-star"></i></div>
+        <div class="absolute bottom-20 right-10 text-brand-turquoise text-5xl animate-float-delayed opacity-50"><i class="fa-solid fa-balloon"></i></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Vaše oslava na jedné doméně</h2>
+                <p class="text-xl text-gray-500 font-semibold">Vyberte si z naší široké nabídky aktivit pro dokonalý den.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="bg-brand-pastelBlue rounded-4xl p-8 shadow-soft hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🐻</div>
+                    <h3 class="text-2xl font-black text-brand-dark mb-3">Maskoti</h3>
+                    <p class="text-gray-600 mb-6 font-semibold">Oblíbené pohádkové postavičky, které rozzáří dětské oči a zajistí parádní program.</p>
+                    <a href="#maskoti" class="inline-block text-brand-turquoise font-black hover:text-cyan-600">Zjistit více <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="bg-brand-pastelPink rounded-4xl p-8 shadow-soft hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🍭</div>
+                    <h3 class="text-2xl font-black text-brand-dark mb-3">Cukrová vata</h3>
+                    <p class="text-gray-600 mb-6 font-semibold">Sladká odměna, kterou milují všichni. Čerstvě točená cukrová vata různých barev a chutí.</p>
+                    <a href="#kontakt" class="inline-block text-pink-500 font-black hover:text-pink-600">Zjistit více <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="bg-brand-pastelPurple rounded-4xl p-8 shadow-soft hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🎨</div>
+                    <h3 class="text-2xl font-black text-brand-dark mb-3">Malování na obličej</h3>
+                    <p class="text-gray-600 mb-6 font-semibold">Proměníme děti v superhrdiny, princezny nebo zvířátka pomocí profi barev.</p>
+                    <a href="#kontakt" class="inline-block text-purple-500 font-black hover:text-purple-600">Zjistit více <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="bg-brand-pastelYellow rounded-4xl p-8 shadow-soft hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group md:col-start-1 lg:col-start-auto" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🍿</div>
+                    <h3 class="text-2xl font-black text-brand-dark mb-3">Popcorn</h3>
+                    <p class="text-gray-600 mb-6 font-semibold">Křupavý, teplý a voňavý. Ideální snack k dětské oslavě nebo letnímu kinu.</p>
+                    <a href="#kontakt" class="inline-block text-brand-yellow font-black hover:text-yellow-600">Zjistit více <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="bg-brand-pastelGreen rounded-4xl p-8 shadow-soft hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300 group" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-20 h-20 bg-white rounded-3xl flex items-center justify-center text-4xl mb-6 shadow-sm group-hover:scale-110 transition-transform">🏰</div>
+                    <h3 class="text-2xl font-black text-brand-dark mb-3">Nafukovací atrakce</h3>
+                    <p class="text-gray-600 mb-6 font-semibold">Skákací hrady a skluzavky, které zaručí hodiny nekonečné a bezpečné zábavy.</p>
+                    <a href="#kontakt" class="inline-block text-brand-green font-black hover:text-green-600">Zjistit více <i class="fa-solid fa-arrow-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 lg:py-32 bg-slate-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row items-center gap-16">
+                <!-- Image -->
+                <div class="w-full lg:w-1/2 relative" data-aos="fade-right">
+                    <div class="absolute inset-0 bg-brand-turquoise rounded-4xl transform translate-x-4 translate-y-4 opacity-20"></div>
+                    <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Tým Zábavní Servis" class="relative rounded-4xl shadow-2xl w-full object-cover h-[500px]">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-3xl shadow-xl animate-float">
+                        <div class="flex items-center gap-4">
+                            <div class="text-brand-orange text-4xl"><i class="fa-solid fa-face-smile"></i></div>
+                            <div>
+                                <p class="text-2xl font-black text-brand-dark">100%</p>
+                                <p class="text-sm font-bold text-gray-500">Dětská radost</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="w-full lg:w-1/2" data-aos="fade-left">
+                    <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-6">O nás</h2>
+                    <p class="text-xl text-gray-600 font-semibold mb-8 leading-relaxed">
+                        Jsme profesionální tým, který zajišťuje nezapomenutelné dětské oslavy po celé České republice. Vkládáme do každé akce srdce a tvoříme kouzelné momenty.
+                    </p>
+                    
+                    <ul class="space-y-6 mb-10">
+                        <li class="flex items-center text-lg font-bold text-gray-700 bg-white p-4 rounded-2xl shadow-sm">
+                            <span class="w-10 h-10 rounded-full bg-brand-pastelGreen text-brand-green flex items-center justify-center mr-4 text-xl"><i class="fa-solid fa-check"></i></span>
+                            Profesionální a empatický přístup k dětem
+                        </li>
+                        <li class="flex items-center text-lg font-bold text-gray-700 bg-white p-4 rounded-2xl shadow-sm">
+                            <span class="w-10 h-10 rounded-full bg-brand-pastelBlue text-brand-turquoise flex items-center justify-center mr-4 text-xl"><i class="fa-solid fa-check"></i></span>
+                            Vysoce kvalitní a čisté kostýmy
+                        </li>
+                        <li class="flex items-center text-lg font-bold text-gray-700 bg-white p-4 rounded-2xl shadow-sm">
+                            <span class="w-10 h-10 rounded-full bg-brand-pastelYellow text-brand-yellow flex items-center justify-center mr-4 text-xl"><i class="fa-solid fa-check"></i></span>
+                            Stovky spokojených zákazníků ročně
+                        </li>
+                    </ul>
+
+                    <a href="#kontakt" class="inline-block bg-brand-dark text-white px-8 py-4 rounded-full font-bold hover:bg-gray-800 hover:shadow-lg transform hover:-translate-y-1 transition-all">
+                        Poznejte nás lépe
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mascots Section -->
+    <section id="maskoti" class="py-20 lg:py-32 bg-brand-pastelBlue/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Naši maskoti</h2>
+                <p class="text-xl text-gray-500 font-semibold">Tito hrdinové udělají z vaší oslavy pohádku.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Mascot 1 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Králík Bombi" class="w-full h-64 object-cover">
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Králík Bombi</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Usměvavý ušák, který rozhýbe každou párty svými tanečky.</p>
+                        <a href="#kontakt" class="bg-brand-pastelBlue text-brand-turquoise px-6 py-3 rounded-full font-bold w-full block hover:bg-brand-turquoise hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+
+                <!-- Mascot 2 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="200">
+                    <div class="w-full h-64 bg-green-200 flex items-center justify-center text-8xl">🐉</div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Dráček Šmouj</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Roztomilý drak, který sice neplive oheň, ale rozdává objetí.</p>
+                        <a href="#kontakt" class="bg-brand-pastelGreen text-brand-green px-6 py-3 rounded-full font-bold w-full block hover:bg-brand-green hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+
+                <!-- Mascot 3 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="300">
+                    <div class="w-full h-64 bg-red-200 flex items-center justify-center text-8xl">🦸‍♂️</div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Superhrdina Max</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Ochránce dobré nálady. Naučí děti pravé superhrdinské pózy.</p>
+                        <a href="#kontakt" class="bg-red-100 text-red-500 px-6 py-3 rounded-full font-bold w-full block hover:bg-red-500 hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+
+                <!-- Mascot 4 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="400">
+                    <div class="w-full h-64 bg-pink-200 flex items-center justify-center text-8xl">👑</div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Princezna Ella</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Přinese do vaší oslavy eleganci, kouzlo a královskou noblesu.</p>
+                        <a href="#kontakt" class="bg-brand-pastelPink text-pink-500 px-6 py-3 rounded-full font-bold w-full block hover:bg-pink-500 hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+
+                <!-- Mascot 5 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="500">
+                    <div class="w-full h-64 bg-orange-200 flex items-center justify-center text-8xl">🦁</div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Lev Leo</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Král zvířat, který je ve skutečnosti ten největší plyšový mazel.</p>
+                        <a href="#kontakt" class="bg-orange-100 text-orange-500 px-6 py-3 rounded-full font-bold w-full block hover:bg-orange-500 hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+
+                <!-- Mascot 6 -->
+                <div class="bg-white rounded-4xl overflow-hidden shadow-soft hover:shadow-2xl transform hover:-translate-y-3 transition-all duration-300" data-aos="fade-up" data-aos-delay="600">
+                    <div class="w-full h-64 bg-yellow-200 flex items-center justify-center text-8xl">🐻</div>
+                    <div class="p-8 text-center">
+                        <h3 class="text-2xl font-black text-brand-dark mb-2">Medvěd Bruno</h3>
+                        <p class="text-gray-600 font-semibold mb-6">Velký dobrák milující med, tancování a objímání.</p>
+                        <a href="#kontakt" class="bg-brand-pastelYellow text-yellow-600 px-6 py-3 rounded-full font-bold w-full block hover:bg-yellow-500 hover:text-white transition-colors">Pozvat na oslavu</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Jak to funguje</h2>
+                <p class="text-xl text-gray-500 font-semibold">Cesta k dokonalé oslavě je jednoduchá.</p>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center relative">
+                <!-- Dotted line background for desktop -->
+                <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 border-t-4 border-dashed border-gray-200 -z-10 transform -translate-y-1/2"></div>
+
+                <!-- Step 1 -->
+                <div class="flex flex-col items-center text-center w-full md:w-1/4 mb-10 md:mb-0 relative bg-white" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="w-24 h-24 rounded-full bg-brand-pastelBlue flex items-center justify-center text-3xl text-brand-turquoise mb-6 shadow-md border-4 border-white">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-brand-dark mb-2">1. Odešlete poptávku</h3>
+                    <p class="text-gray-500 font-semibold px-4">Vyplňte formulář a napište nám své přání.</p>
+                </div>
+
+                <!-- Arrow down mobile -->
+                <div class="md:hidden text-gray-300 text-3xl mb-10"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col items-center text-center w-full md:w-1/4 mb-10 md:mb-0 relative bg-white" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="w-24 h-24 rounded-full bg-brand-pastelYellow flex items-center justify-center text-3xl text-brand-yellow mb-6 shadow-md border-4 border-white">
+                        <i class="fa-solid fa-phone"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-brand-dark mb-2">2. Zavoláme vám</h3>
+                    <p class="text-gray-500 font-semibold px-4">Dolomluvíme detaily a poradíme s výběrem.</p>
+                </div>
+
+                <!-- Arrow down mobile -->
+                <div class="md:hidden text-gray-300 text-3xl mb-10"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col items-center text-center w-full md:w-1/4 mb-10 md:mb-0 relative bg-white" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="w-24 h-24 rounded-full bg-brand-pastelPink flex items-center justify-center text-3xl text-pink-500 mb-6 shadow-md border-4 border-white">
+                        <i class="fa-solid fa-box-open"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-brand-dark mb-2">3. Vyberete balíček</h3>
+                    <p class="text-gray-500 font-semibold px-4">Schválíte si konečnou podobu a cenu oslavy.</p>
+                </div>
+
+                <!-- Arrow down mobile -->
+                <div class="md:hidden text-gray-300 text-3xl mb-10"><i class="fa-solid fa-arrow-down"></i></div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col items-center text-center w-full md:w-1/4 relative bg-white" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="w-24 h-24 rounded-full bg-brand-pastelGreen flex items-center justify-center text-3xl text-brand-green mb-6 shadow-md border-4 border-white">
+                        <i class="fa-solid fa-car-side"></i>
+                    </div>
+                    <h3 class="text-xl font-black text-brand-dark mb-2">4. Přijedeme na oslavu</h3>
+                    <p class="text-gray-500 font-semibold px-4">Užijete si dokonalý den bez starostí.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="galerie" class="py-20 lg:py-32 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Galerie plná radosti</h2>
+                <p class="text-xl text-gray-500 font-semibold">Nakoukněte, jak vypadá pravá zábava v akci.</p>
+            </div>
+
+            <!-- Masonry Grid -->
+            <div class="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4" id="gallery-grid">
+                <!-- Generating 12 images -->
+                <img src="https://images.unsplash.com/photo-1530103862676-de8892bc952f?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1519671482749-fd09be7ccebf?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1561557944-6e7860d1a7eb?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1533222481259-ce20eda1e20b?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <img src="https://images.unsplash.com/photo-1602631592596-eb5a14d59eb3?auto=format&fit=crop&w=400&q=80" alt="Gallery" class="w-full rounded-3xl cursor-pointer hover:scale-[1.02] hover:shadow-xl transition-all duration-300 gallery-img" onclick="openLightbox(this.src)">
+                <!-- Adding a few more for masonry effect -->
+                <div class="bg-brand-pastelYellow w-full h-48 rounded-3xl flex items-center justify-center text-4xl cursor-pointer hover:scale-[1.02] transition-all">🎈</div>
+                <div class="bg-brand-pastelBlue w-full h-64 rounded-3xl flex items-center justify-center text-4xl cursor-pointer hover:scale-[1.02] transition-all">🎉</div>
+                <div class="bg-brand-pastelGreen w-full h-40 rounded-3xl flex items-center justify-center text-4xl cursor-pointer hover:scale-[1.02] transition-all">🎁</div>
+                <div class="bg-brand-pastelPink w-full h-56 rounded-3xl flex items-center justify-center text-4xl cursor-pointer hover:scale-[1.02] transition-all">🥳</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[100] hidden flex items-center justify-center opacity-0 transition-opacity duration-300">
+        <button class="absolute top-6 right-6 text-white text-4xl hover:text-brand-turquoise transition-colors" onclick="closeLightbox()">&times;</button>
+        <img id="lightbox-img" src="" alt="Zoomed gallery image" class="max-h-[90vh] max-w-[90vw] rounded-2xl shadow-2xl">
     </div>
-</header>
 
-<section class="hero">
-    <h1>KOMPLETNÍ ZÁBAVA PRO KAŽDOU PÁRTY</h1>
-    <button class="btn" style="background: var(--primary-green);">VYTVOŘIT POPTÁVKU</button>
-    <button class="btn" style="background: white; color: var(--primary-orange);">PROHLÉDNOUT BALÍČKY</button>
-</section>
+    <!-- Testimonials Section -->
+    <section class="py-20 bg-white overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Co o nás říkají rodiče</h2>
+            </div>
 
-<section class="services-row">
-    <div class="card">NAŠI MASKOTI</div>
-    <div class="card">CUKROVÁ VATA</div>
-    <div class="card">MALOVÁNÍ</div>
-    <div class="card">POPCORN</div>
-</section>
+            <!-- Carousel -->
+            <div class="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 no-scrollbar" style="scroll-behavior: smooth;">
+                <!-- Reference 1 -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-50 p-8 rounded-4xl shadow-sm border border-gray-100">
+                    <div class="text-brand-yellow mb-4 text-xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-semibold mb-6 italic">"Úžasný zážitek! Maskoti byli neskutečně milí, děti je milovaly. Malování na obličej bylo jako od profesionálních maskérů. Moc děkujeme za krásnou oslavu!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User"></div>
+                        <div>
+                            <h4 class="font-black text-brand-dark">Lucie Nováková</h4>
+                            <p class="text-sm text-gray-500">Oslava 5. narozenin</p>
+                        </div>
+                    </div>
+                </div>
 
-<div class="content">
-    <main>
-        <div class="box">
-            <h2>O NÁS: ROZPOHYBUJEME KAŽDOU OSLAVU</h2>
-            <p>Jsme profesionálové, kteří přinášejí radost do vašich domovů.</p>
+                <!-- Reference 2 -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-50 p-8 rounded-4xl shadow-sm border border-gray-100">
+                    <div class="text-brand-yellow mb-4 text-xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-semibold mb-6 italic">"Skvělá domluva, přijeli včas, vše měli perfektně připravené. Skákací hrad a popcorn měly obrovský úspěch i u dospělých. Doporučuji všema deseti."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User"></div>
+                        <div>
+                            <h4 class="font-black text-brand-dark">Petr Dvořák</h4>
+                            <p class="text-sm text-gray-500">Zahradní párty</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reference 3 -->
+                <div class="min-w-[300px] md:min-w-[400px] snap-center bg-slate-50 p-8 rounded-4xl shadow-sm border border-gray-100">
+                    <div class="text-brand-yellow mb-4 text-xl">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <p class="text-gray-600 font-semibold mb-6 italic">"Princezna Ella byla dokonalá. Dcera z ní nemohla spustit oči. Krásný kostým, milý přístup, prostě pohádka naživo. Děkujeme za nezapomenutelný den."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-gray-300 overflow-hidden"><img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User"></div>
+                        <div>
+                            <h4 class="font-black text-brand-dark">Jana Svobodová</h4>
+                            <p class="text-sm text-gray-500">Narozeniny dcery (6 let)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="box">
-            <h2>GALERIE NAŠICH ÚSPĚCHŮ</h2>
-            <div style="height: 200px; background: #eee; border-radius: 20px;"></div>
-        </div>
-    </main>
-    <aside>
-        <div class="box">
-            <h2>REFERENCE</h2>
-            <p>Spokojení rodiče říkají...</p>
-        </div>
-        <div class="box">
-            <h2>KONTAKT</h2>
-            <input type="text" placeholder="Jméno" style="width: 100%; padding: 10px; margin-bottom: 10px; border-radius: 10px;">
-            <button class="btn" style="background: var(--primary-blue); color: white; width: 100%;">ODESLAT</button>
-        </div>
-    </aside>
-</div>
+    </section>
 
-<footer>© 2026 ZÁBAVNÍ SERVIS 365</footer>
+    <!-- Pricing Section -->
+    <section id="cenik" class="py-20 lg:py-32 bg-brand-pastelBlue/20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16" data-aos="fade-up">
+                <h2 class="text-4xl md:text-5xl font-black text-brand-dark mb-4">Vyberte si svůj balíček</h2>
+                <p class="text-xl text-gray-500 font-semibold">Transparentní ceny bez skrytých poplatků.</p>
+            </div>
 
-</body>
-</html>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center max-w-5xl mx-auto">
+                <!-- Starter -->
+                <div class="bg-white rounded-4xl p-8 shadow-soft border border-gray-100" data-aos="fade-right">
+                    <h3 class="text-2xl font-black text-brand-dark mb-2">Starter</h3>
+                    <p class="text-gray-500 mb-6 font-semibold">Základní oslava v rodinném kruhu.</p>
+                    <div class="text-4xl font-black text-brand-turquoise mb-6">2 990 Kč</div>
+                    <ul class="space-y-4 mb-8 font-semibold text-gray-600">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> 1x Maskot (1 hodina)</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Základní malování (1 hod)</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Focení s maskotem</li>
+                        <li class="text-gray-400"><i class="fa-solid fa-times mr-2"></i> Cukrová vata</li>
+                        <li class="text-gray-400"><i class="fa-solid fa-times mr-2"></i> Skákací hrad</li>
+                    </ul>
+                    <a href="#kontakt" class="block w-full text-center bg-slate-100 text-gray-800 font-bold py-3 rounded-full hover:bg-slate-200 transition">Vybrat balíček</a>
+                </div>
+
+                <!-- Premium (Highlighted) -->
+                <div class="bg-brand-dark rounded-4xl p-8 shadow-2xl transform md:scale-110 relative border-4 border-brand-yellow" data-aos="zoom-in">
+                    <div class="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-brand-yellow text-brand-dark font-black px-4 py-1 rounded-full text-sm uppercase tracking-wider">Nejoblíbenější</div>
+                    <h3 class="text-2xl font-black text-white mb-2 mt-4">Premium</h3>
+                    <p class="text-gray-400 mb-6 font-semibold">Nejlepší zážitek pro plnohodnotnou párty.</p>
+                    <div class="text-4xl font-black text-brand-yellow mb-6">5 990 Kč</div>
+                    <ul class="space-y-4 mb-8 font-semibold text-gray-300">
+                        <li><i class="fa-solid fa-check text-brand-yellow mr-2"></i> 2x Maskot (2 hodiny)</li>
+                        <li><i class="fa-solid fa-check text-brand-yellow mr-2"></i> Profi malování (2 hodiny)</li>
+                        <li><i class="fa-solid fa-check text-brand-yellow mr-2"></i> Neomezená cukrová vata</li>
+                        <li><i class="fa-solid fa-check text-brand-yellow mr-2"></i> Reproduktor s dětskou hudbou</li>
+                        <li class="text-gray-500"><i class="fa-solid fa-times mr-2"></i> Skákací hrad</li>
+                    </ul>
+                    <a href="#kontakt" class="block w-full text-center bg-brand-yellow text-brand-dark font-black py-4 rounded-full hover:bg-yellow-400 transform hover:scale-105 transition shadow-lg">Vybrat balíček</a>
+                </div>
+
+                <!-- VIP -->
+                <div class="bg-white rounded-4xl p-8 shadow-soft border border-gray-100" data-aos="fade-left">
+                    <h3 class="text-2xl font-black text-brand-dark mb-2">Maxi párty</h3>
+                    <p class="text-gray-500 mb-6 font-semibold">Kompletní balíček pro velké oslavy.</p>
+                    <div class="text-4xl font-black text-brand-orange mb-6">9 990 Kč</div>
+                    <ul class="space-y-4 mb-8 font-semibold text-gray-600">
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Až 3 Maskoti dle výběru</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Malování & Tetování</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Cukrová vata + Popcorn</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Střední skákací hrad</li>
+                        <li><i class="fa-solid fa-check text-green-500 mr-2"></i> Kompletní moderování</li>
+                    </ul>
+                    <a href="#kontakt" class="block w-full text-center bg-slate-100 text-gray-800 font-bold py-3 rounded-full hover:bg-slate-200 transition">Vybrat balíček</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="kontakt" class="py-20 lg:py-32 bg-white relative overflow-hidden">
+        <!-- Decor -->
+        <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-brand-pastelGreen rounded-full opacity-50 z-0"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="bg-slate-50 rounded-[40px] p-8 md:p-16 shadow-xl flex flex-col lg:flex-row gap-16">
+                <!-- Form -->
+                <div class="w-full lg:w-2/3" data-aos="fade-right">
+                    <h2 class="text-4xl font-black text-brand-dark mb-2">Napište nám</h2>
+                    <p class="text-gray-500 font-semibold mb-8">Nezávazná poptávka. Odpovíme do 24 hodin.</p>
+                    
+                    <form class="space-y-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Jméno a příjmení</label>
+                                <input type="text" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="Jan Novák">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Telefon</label>
+                                <input type="tel" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="+420 123 456 789">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Email</label>
+                                <input type="email" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="jan@email.cz">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Datum akce</label>
+                                <input type="date" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm text-gray-500">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Město konání</label>
+                                <input type="text" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="Praha">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">Očekávaný počet dětí</label>
+                                <input type="number" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="Např. 15">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold text-gray-700 mb-2">Poznámka / O jaké služby máte zájem?</label>
+                            <textarea rows="4" class="w-full bg-white px-4 py-3 rounded-2xl border-none focus:ring-2 focus:ring-brand-turquoise outline-none shadow-sm" placeholder="Chceme maskota Lva Lea a cukrovou vatu..."></textarea>
+                        </div>
+                        <button type="button" class="w-full md:w-auto bg-brand-green text-white px-10 py-4 rounded-full font-black text-lg hover:bg-green-500 transform hover:-translate-y-1 transition-all shadow-lg flex items-center justify-center">
+                            Odeslat poptávku <i class="fa-solid fa-paper-plane ml-3"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="w-full lg:w-1/3 flex flex-col justify-center" data-aos="fade-left">
+                    <div class="bg-brand-turquoise rounded-4xl p-8 text-white shadow-xl relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full transform translate-x-10 -translate-y-10"></div>
+                        <h3 class="text-2xl font-black mb-8 relative z-10">Kontaktní údaje</h3>
+                        
+                        <div class="space-y-6 relative z-10 font-semibold">
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fa-solid fa-phone"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cyan-100 text-sm">Volejte nám</p>
+                                    <p class="text-lg">+420 777 888 999</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cyan-100 text-sm">Napište nám</p>
+                                    <p class="text-lg">info@zabavniservis365.cz</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center mr-4 shrink-0">
+                                    <i class="fa-solid fa-location-dot"></i>
+                                </div>
+                                <div>
+                                    <p class="text-cyan-100 text-sm">Působíme</p>
+                                    <p class="text-lg">Celá Česká republika</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-10 pt-8 border-t border-white/20 relative z-10">
+                            <p class="text-sm text-cyan-100 mb-4">Sledujte naše akce:</p>
+                            <div class="flex gap-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-brand-turquoise transition"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-brand-turquoise transition"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center hover:bg-white hover:text-brand-turquoise transition"><i class="fa-brands fa-tiktok"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark pt-16 pb-8 border-t-[10px] border-brand-turquoise text-gray-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mb-12">
+                <div>
+                    <span class="text-2xl font-black tracking-tight text-white mb-4 inline-block">
+                        Zábavní <span class="text-brand-turquoise">Servis</span> <span class="text-brand-orange">365</span>
+                    </span>
+                    <p class="text-gray-400 font-semibold mb-6 pr-4">Přinášíme radost a smích na každou dětskou oslavu. Kompletní zábava na jednom místě s profesionálním přístupem.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Rychlé odkazy</h4>
+                    <ul class="space-y-2 font-semibold">
+                        <li><a href="#sluzby" class="hover:text-brand-turquoise transition">Naše služby</a></li>
+                        <li><a href="#maskoti" class="hover:text-brand-turquoise transition">Katalog maskotů</a></li>
+                        <li><a href="#galerie" class="hover:text-brand-turquoise transition">Fotogalerie</a></li>
+                        <li><a href="#cenik" class="hover:text-brand-turquoise transition">Ceník balíčků</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-bold text-lg mb-4">Právní informace</h4>
+                    <ul class="space-y-2 font-semibold">
+                        <li><a href="#" class="hover:text-brand-turquoise transition">Obchodní podmínky</a></li>
+                        <li><a href="#" class="hover:text-brand-turquoise transition">Zpracování osobních údajů</a></li>
+                        <li>IČO: 12345678</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm font-semibold text-gray-500">
+                <p>&copy; 2026 Zábavní Servis 365. Všechna práva vyhrazena.</p>
+                <p class="mt-2 md:mt-0">Vytvořeno s ❤️ pro dětský smích.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize Animations
+        AOS.init({
+            once: true,
+            offset: 50,
+            duration: 800,
+        });
+
+        // Sticky Navbar Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-md');
+                navbar.classList.replace('bg-white/90', 'bg-white/95');
+            } else {
+                navbar.classList.remove('shadow-md');
+                navbar.classList.replace('bg-white/95', 'bg-white/90');
+            }
+Normally I can help with things like this, but I don't seem to have access to that content. You can try again or ask me for something else.
