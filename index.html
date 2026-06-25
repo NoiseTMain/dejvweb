@@ -1005,3 +1005,549 @@
             <svg viewBox="0 0 24 24"><path d="M7.41,15.41L12,10.83L16.59,15.41L18,14L12,8L6,14L7.41,15.41Z"/></svg>
         </button>
     </div>
+
+    
+
+    <!-- HEADER -->
+    <header id="main-header">
+        <div class="container header-content">
+            <a href="#" class="logo">
+                <svg viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                Zábava <span>365</span>
+            </a>
+            <nav class="nav-links" id="nav-links">
+                <a href="#hero" class="nav-item active">
+                    <svg viewBox="0 0 24 24"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg>
+                    Domů
+                </a>
+                <a href="#services" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg>
+                    Služby
+                </a>
+                <a href="#sekce-maskoti" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M12,2C9.24,2 7,4.24 7,7A5,5 0 0,0 12,12A5,5 0 0,0 17,7A5,5 0 0,0 12,2M12,14C7.58,14 4,15.79 4,18V20H20V18C20,15.79 16.42,14 12,14Z"/></svg>
+                    Maskoti
+                </a>
+                <a href="#ceny-balicky" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M6,2C4.89,2 4,2.89 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6Z"/></svg>
+                    Ceník
+                </a>
+                <a href="#kontakt" class="nav-item">
+                    <svg viewBox="0 0 24 24"><path d="M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8.1,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.5 8,3 7.5,3H4C3.5,3 3,3.5 3,4C3,13.4 10.6,21 20,21C20.5,21 21,20.5 21,20V16.5C21,16 20.5,15.5 20,15.5Z"/></svg>
+                    Kontakt
+                </a>
+            </nav>
+            <button class="hamburger" id="hamburger" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section id="hero" class="hero">
+        <div class="floating-balloons">
+            <div class="balloon" style="--c:#2AC4C1; left: 10%; animation-duration: 12s;"></div>
+            <div class="balloon" style="--c:#F9A826; left: 30%; animation-duration: 18s;"></div>
+            <div class="balloon" style="--c:#82C246; left: 50%; animation-duration: 14s;"></div>
+            <div class="balloon" style="--c:#5EB1E5; left: 70%; animation-duration: 20s;"></div>
+            <div class="balloon" style="--c:#FFC107; left: 90%; animation-duration: 16s;"></div>
+        </div>
+        <div class="container hero-content">
+            <h1 class="reveal">Zábavní Servis 365</h1>
+            <h2 class="reveal">Proměníme Vaši oslavu v nezapomenutelný zážitek!</h2>
+            <div class="hero-buttons reveal">
+                <a href="#services" class="btn btn-green">Prozkoumat služby</a>
+                <a href="#kontakt" class="btn btn-orange">Nezávazná poptávka</a>
+            </div>
+        </div>
+        <div class="hero-wave">
+            <svg viewBox="0 0 1440 320" preserveAspectRatio="none">
+                <path fill="#FFFFFF" fill-opacity="1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,160C960,181,1056,203,1152,192C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+            </svg>
+        </div>
+    </section>
+    <!-- SERVICES SECTION -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Naše Služby</h2>
+                <p class="reveal">Nabízíme širokou škálu atrakcí a služeb, které rozzáří každou dětskou oslavu, firemní akci či festival.</p>
+            </div>
+
+            <div class="services-grid">
+                <!-- Maskoti -->
+                <article class="service-card card-cyan reveal">
+                    <img src="https://images.unsplash.com/photo-1596404740700-1129b0a8809e?auto=format&fit=crop&w=600&q=80" alt="Maskoti" class="service-img">
+                    <div class="service-content">
+                        <h3>Maskoti</h3>
+                        <p>Oblíbené pohádkové postavy, které přijdou osobně popřát oslavenci nebo zabavit hosty.</p>
+                        <a href="#sekce-maskoti" class="service-btn">Více info</a>
+                    </div>
+                </article>
+
+                <!-- Cukrová vata -->
+                <article class="service-card card-blue reveal">
+                    <img src="https://images.unsplash.com/photo-1596404740700-1129b0a8809e?auto=format&fit=crop&w=600&q=80" alt="Cukrová vata" class="service-img">
+                    <div class="service-content">
+                        <h3>Cukrová vata</h3>
+                        <p>Sladká klasika, která k oslavám neodmyslitelně patří. Nabízíme různé barvy a příchutě.</p>
+                        <a href="#cukrova-vata" class="service-btn">Více info</a>
+                    </div>
+                </article>
+
+                <!-- Malování na obličej -->
+                <article class="service-card card-green reveal">
+                    <img src="https://images.unsplash.com/photo-1560961803-094191a8ea6c?auto=format&fit=crop&w=600&q=80" alt="Malování" class="service-img">
+                    <div class="service-content">
+                        <h3>Malování na obličej</h3>
+                        <p>Profesionální facepainting promění děti v tygry, princezny nebo superhrdiny.</p>
+                        <a href="#malovani" class="service-btn">Více info</a>
+                    </div>
+                </article>
+
+                <!-- Popcorn -->
+                <article class="service-card card-yellow reveal">
+                    <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=600&q=80" alt="Popcorn" class="service-img">
+                    <div class="service-content">
+                        <h3>Popcorn</h3>
+                        <p>Čerstvý, teplý a křupavý popcorn přímo z našeho retro vozíku.</p>
+                        <a href="#popcorn" class="service-btn">Více info</a>
+                    </div>
+                </article>
+
+                <!-- Nafukovací atrakce -->
+                <article class="service-card card-orange reveal">
+                    <img src="https://images.unsplash.com/photo-1517604931442-775c88939c80?auto=format&fit=crop&w=600&q=80" alt="Atrakce" class="service-img">
+                    <div class="service-content">
+                        <h3>Atrakce</h3>
+                        <p>Nafukovací hrady, skluzavky a překážkové dráhy pro nekonečnou zábavu.</p>
+                        <a href="#nafukovaci-atrakce" class="service-btn">Více info</a>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+    <!-- PROČ PRÁVĚ MY -->
+    <section class="why-us" style="padding: 100px 0; background: #f8fdfd;">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Proč právě my?</h2>
+                <p class="reveal" style="margin-bottom: 50px;">Garantujeme profesionální přístup a zábavu, na kterou děti nezapomenou.</p>
+            </div>
+            <div class="why-us-grid">
+                <div class="why-card reveal">
+                    <div class="why-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12,2L1,21H23L12,2M12,6L19.53,19H4.47L12,6Z"/></svg>
+                    </div>
+                    <h3>Bezpečnost na 1. místě</h3>
+                    <p>Veškeré naše atrakce jsou certifikované a pravidelně kontrolované.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1Z"/></svg>
+                    </div>
+                    <h3>Profesionální tým</h3>
+                    <p>Zkušení animátoři, kteří vědí, jak děti zaujmout a bavit.</p>
+                </div>
+                <div class="why-card reveal">
+                    <div class="why-icon-wrapper">
+                        <svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg>
+                    </div>
+                    <h3>Spolehlivost</h3>
+                    <p>Dodržujeme termíny a vždy přijedeme včas připraveni.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- STATISTIKY -->
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12,17.27L18.18,21L16.54,13.97L22,9.24L14.81,8.62L12,2L9.19,8.62L2,9.24L7.45,13.97L5.82,21L12,17.27Z"/></svg></div>
+                    <div class="stat-number">500<span class="plus">+</span></div>
+                    <div class="stat-label">Spokojených klientů</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1M17,11H7V13H17V11Z"/></svg></div>
+                    <div class="stat-number">1200<span class="plus">+</span></div>
+                    <div class="stat-label">Uspořádaných akcí</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22A10,10 0 0,1 2,12A10,10 0 0,1 12,2M11,16.5L18,9.5L16.59,8.09L11,13.67L7.91,10.59L6.5,12L11,16.5Z"/></svg></div>
+                    <div class="stat-number">100<span class="plus">%</span></div>
+                    <div class="stat-label">Úsměvů na tvářích</div>
+                </div>
+                <div class="stat-item reveal">
+                    <div class="stat-icon"><svg viewBox="0 0 24 24"><path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5Z"/></svg></div>
+                    <div class="stat-number">50<span class="plus">+</span></div>
+                    <div class="stat-label">Atrakcí skladem</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MASKOTI SECTION (START) -->
+    <section id="sekce-maskoti">
+        <div class="container">
+            <div class="mascot-hero">
+                <div class="mascot-hero-text">
+                    <h2 class="reveal">Pohádkoví maskoti</h2>
+                    <p class="reveal">Chcete, aby vaše akce byla nezapomenutelná? Pozvěte naše maskoty! Jsou ideální na dětské oslavy, firemní dny, otvíračky obchodů nebo dětské dny.</p>
+                    <div class="mascot-feature-list">
+                        <div class="mascot-feature-item reveal">
+                            <div class="mascot-feature-icon"><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></div>
+                            Profesionální kostýmy
+                        </div>
+                        <div class="mascot-feature-item reveal">
+                            <div class="mascot-feature-icon"><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></div>
+                            Interaktivní program
+                        </div>
+                        <div class="mascot-feature-item reveal">
+                            <div class="mascot-feature-icon"><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg></div>
+                            Skvělá show pro děti i dospělé
+                        </div>
+                    </div>
+                    <a href="#kontakt" class="btn btn-orange reveal">Rezervovat maskota</a>
+                </div>
+                <div class="mascot-hero-img reveal">
+                    <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=800&q=80" alt="Maskoti">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- CUKROVÁ VATA -->
+    <section id="cukrova-vata">
+        <div class="container">
+            <div class="service-detail-grid">
+                <div class="service-detail-content reveal">
+                    <h2>Sladká Cukrová Vata</h2>
+                    <p>Žádná pořádná oslava se neobejde bez vůně čerstvé cukrové vaty. Naše profesionální stroje připraví nadýchané obláčky radosti přímo před zraky dětí.</p>
+                    <div class="flavors-wrap">
+                        <span class="flavor-tag f-jahoda">Jahoda</span>
+                        <span class="flavor-tag f-malina">Malina</span>
+                        <span class="flavor-tag f-jablko">Zelené jablko</span>
+                        <span class="flavor-tag f-boruvka">Borůvka</span>
+                        <span class="flavor-tag f-banan">Banan</span>
+                        <span class="flavor-tag f-vanilka">Vanilka</span>
+                    </div>
+                    <p><strong>Nabízíme:</strong> Pronájem stroje s obsluhou, suroviny, špejle a kompletní servis.</p>
+                </div>
+                <div class="service-img-grid reveal">
+                    <div class="img-grid-item full-width">
+                        <img src="https://images.unsplash.com/photo-1582298492026-6f81a177242d?auto=format&fit=crop&w=800&q=80" alt="Cukrová vata">
+                    </div>
+                    <div class="img-grid-item">
+                        <img src="https://images.unsplash.com/photo-1579783902614-a3fb3927b6a5?auto=format&fit=crop&w=400&q=80" alt="Detail vaty">
+                    </div>
+                    <div class="img-grid-item">
+                        <img src="https://images.unsplash.com/photo-1542848228-095a5f78b105?auto=format&fit=crop&w=400&q=80" alt="Děti s vatou">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MALOVÁNÍ A TETOVÁNÍ -->
+    <section id="malovani">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Malování na obličej</h2>
+                <p class="reveal">Proměníme každou tvářičku v malé umělecké dílo.</p>
+            </div>
+            <div class="painting-cards">
+                <div class="p-card p-card-1 reveal">
+                    <h3>Facepainting</h3>
+                    <p>Používáme pouze certifikované, hypoalergenní barvy bezpečné pro dětskou pleť.</p>
+                </div>
+                <div class="p-card p-card-2 reveal">
+                    <h3>Třpytivé tetování</h3>
+                    <p>Dočasné tetování, které vydrží několik dní a děti ho milují!</p>
+                </div>
+                <div class="p-card p-card-3 reveal">
+                    <h3>Tematické party</h3>
+                    <p>Přizpůsobíme motivy vaší akci – od pirátů po princezny.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- POPCORN -->
+    <section id="popcorn">
+        <div class="container">
+            <div class="retro-banner reveal">Čerstvý Popcorn</div>
+            <div class="text-center">
+                <p class="reveal">Voňavý, teplý a křupavý! Náš retro vozík s popcornem je magnetem pro všechny věkové kategorie.</p>
+            </div>
+            <div class="popcorn-features">
+                <div class="pop-feat-card reveal">
+                    <svg viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                    <h4>Slaný klasik</h4>
+                </div>
+                <div class="pop-feat-card reveal">
+                    <svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg>
+                    <h4>Sladký karamel</h4>
+                </div>
+                <div class="pop-feat-card reveal">
+                    <svg viewBox="0 0 24 24"><path d="M12,2C9.24,2 7,4.24 7,7A5,5 0 0,0 12,12A5,5 0 0,0 17,7A5,5 0 0,0 12,2M12,14C7.58,14 4,15.79 4,18V20H20V18C20,15.79 16.42,14 12,14Z"/></svg>
+                    <h4>Máslový</h4>
+                </div>
+                <div class="pop-feat-card reveal">
+                    <svg viewBox="0 0 24 24"><path d="M10,20V14H14V20H19V12H22L12,3L2,12H5V20H10Z"/></svg>
+                    <h4>S příchutí</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- NAFUKOVACÍ ATRAKCE -->
+    <section id="nafukovaci-atrakce">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Nafukovací Atrakce</h2>
+                <p class="reveal">Království zábavy pro děti všech věkových kategorií.</p>
+            </div>
+            <div class="bouncy-grid">
+                <article class="bouncy-card reveal">
+                    <img src="https://images.unsplash.com/photo-1517604931442-775c88939c80?auto=format&fit=crop&w=800&q=80" alt="Skákací hrad" class="bouncy-img">
+                    <div class="bouncy-info">
+                        <h3>Velký Skákací Hrad</h3>
+                        <div class="specs">
+                            <span class="spec-badge">Kapacita: 10 dětí</span>
+                            <span class="spec-badge">5m x 5m</span>
+                        </div>
+                        <p>Klasický hrad pro nekonečné skákání. Ideální pro zahradní oslavy.</p>
+                    </div>
+                </article>
+                <article class="bouncy-card reveal">
+                    <img src="https://images.unsplash.com/photo-1577905989786-8a7122176b9e?auto=format&fit=crop&w=800&q=80" alt="Skluzavka" class="bouncy-img">
+                    <div class="bouncy-info">
+                        <h3>Obří Skluzavka</h3>
+                        <div class="specs">
+                            <span class="spec-badge">Kapacita: 2 děti</span>
+                            <span class="spec-badge">6m výška</span>
+                        </div>
+                        <p>Adrenalinový zážitek pro malé i větší odvážlivce.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- CENÍK & BALÍČKY -->
+    <section id="ceny-balicky">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Ceník & Balíčky</h2>
+                <p class="reveal">Vyberte si ideální řešení pro vaši akci.</p>
+            </div>
+            <div class="pricing-grid">
+                <!-- Mini Balíček -->
+                <div class="pricing-card reveal">
+                    <div class="pack-name">Mini Oslava</div>
+                    <div class="pack-price">1 500<span>Kč</span></div>
+                    <ul class="pack-features">
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> 1 Maskot (1 hodina)</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Malování na obličej</li>
+                        <li class="disabled"><svg viewBox="0 0 24 24"><path d="M19,6.41L17.59,5L12,10.59L6.41,5L5,6.41L10.59,12L5,17.59L6.41,19L12,13.41L17.59,19L19,17.59L13.41,12L19,6.41Z"/></svg> Cukrová vata</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-orange">Vybrat</a>
+                </div>
+                <!-- Premium Balíček -->
+                <div class="pricing-card premium reveal">
+                    <div class="popular-badge">Nejoblíbenější</div>
+                    <div class="pack-name">Párty Mega</div>
+                    <div class="pack-price">4 500<span>Kč</span></div>
+                    <ul class="pack-features">
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> 2 Maskoti (2 hodiny)</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Neomezená vata a popcorn</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Malování na obličej</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-green">Vybrat</a>
+                </div>
+                <!-- Základní Balíček -->
+                <div class="pricing-card reveal">
+                    <div class="pack-name">Základ</div>
+                    <div class="pack-price">2 500<span>Kč</span></div>
+                    <ul class="pack-features">
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> 1 Maskot (2 hodiny)</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Cukrová vata</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M21,7L9,19L3.5,13.5L4.91,12.09L9,16.17L19.59,5.59L21,7Z"/></svg> Malování na obličej</li>
+                    </ul>
+                    <a href="#kontakt" class="btn btn-orange">Vybrat</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRŮBĚH OBJEDNÁVKY -->
+    <section id="proces-objednavky">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="section-title reveal">Jak to probíhá?</h2>
+                <p class="reveal">Objednání zábavy u nás je hračka!</p>
+            </div>
+            <div class="process-steps">
+                <div class="step reveal">
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M15.5,12C18,12 20,10 20,7.5S18,3 15.5,3 11,5 11,7.5 13,12 15.5,12M15.5,5C16.9,5 18,6.1 18,7.5S16.9,10 15.5,10 13,8.9 13,7.5 14.1,5 15.5,5M15.5,13C13.3,13 9,14.1 9,16.25V19H22V16.25C22,14.1 17.7,13 15.5,13Z"/></svg></div>
+                    <h4>1. Poptávka</h4>
+                    <p>Vyplňte formulář nebo nám zavolejte a řekněte nám své představy.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4M12,6A6,6 0 0,0 6,12A6,6 0 0,0 12,18A6,6 0 0,0 18,12A6,6 0 0,0 12,6Z"/></svg></div>
+                    <h4>2. Plánování</h4>
+                    <p>Doladíme detaily, vybereme atrakce a připravíme scénář akce.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M19,19H5V8H19M16,1V3H8V1H6V3H5C3.89,3 3,3.89 3,5V19A2,2 0 0,0 5,21H19A2,2 0 0,0 21,19V5C21,3.89 20.1,3 19,3H18V1Z"/></svg></div>
+                    <h4>3. Rezervace</h4>
+                    <p>Podepíšeme smlouvu a potvrdíme termín vaší oslavy.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-icon"><svg viewBox="0 0 24 24"><path d="M12,21L15.6,16.2L11.4,12.4L18.6,8L22,12.7L20.6,20H22V22H14V20H15.6L14.2,12.7L12,15L9.8,12.7L8.4,20H10V22H2V20H3.4L2,12.7L5.4,8L12.6,12.4L8.4,16.2L12,21Z"/></svg></div>
+                    <h4>4. Akce</h4>
+                    <p>Přijedeme, rozbalíme to a postaráme se o nezapomenutelnou zábavu!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="section-title reveal text-center">Často kladené otázky</h2>
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-q">Jak dlouho dopředu musím rezervovat? <div class="faq-icon"></div></div>
+                    <div class="faq-a"><div class="faq-a-content">Doporučujeme rezervaci alespoň 1 měsíc předem, v sezóně (květen–září) i dříve.</div></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">Co když bude pršet? <div class="faq-icon"></div></div>
+                    <div class="faq-a"><div class="faq-a-content">Většina atrakcí vyžaduje sucho. Pokud máme možnost zastřešení nebo vnitřní prostor, pokračujeme. V případě špatného počasí se domluvíme na náhradním termínu.</div></div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-q">Potřebujete elektrickou přípojku? <div class="faq-icon"></div></div>
+                    <div class="faq-a"><div class="faq-a-content">Ano, pro většinu nafukovacích atrakcí a strojů na vatu potřebujeme standardní zásuvku 230V v dosahu.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section id="reference">
+        <div class="container">
+            <h2 class="section-title reveal text-center">Co o nás říkají</h2>
+            <div class="testi-slider">
+                <div class="testi-track">
+                    <div class="testi-slide">
+                        <div class="testi-card">
+                            <svg class="quote-icon" viewBox="0 0 24 24"><path d="M14,17H17L19,13V7H13V13H16M6,17H9L11,13V7H5V13H8L6,17Z"/></svg>
+                            <div class="testi-text">"Dětský den s vašimi maskoty byl naprosto fantastický! Děti byly nadšené a my jako rodiče jsme měli konečně klid. Vše proběhlo přesně podle domluvy."</div>
+                            <div class="testi-author-info">
+                                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&q=80" class="testi-avatar" alt="Avatar">
+                                <div class="testi-name">
+                                    <h5>Jana Nováková</h5>
+                                    <span>Spokojená maminka</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testi-dots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PARTNER LOGOS -->
+    <section class="partners-section">
+        <div class="container">
+            <div class="marquee">
+                <div class="marquee-content">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/300px-Google_2015_logo.svg.png" class="partner-logo" alt="Partner">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Facebook_logo_%28square%29.png/240px-Facebook_logo_%28square%29.png" class="partner-logo" alt="Partner">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Microsoft_logo.svg/300px-Microsoft_logo.svg.png" class="partner-logo" alt="Partner">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/300px-Amazon_logo.svg.png" class="partner-logo" alt="Partner">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Google_2015_logo.svg/300px-Google_2015_logo.svg.png" class="partner-logo" alt="Partner">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="kontakt" class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <a href="#" class="logo">
+                        <svg viewBox="0 0 24 24"><path d="M12,2L4.5,20.29L5.21,21L12,18L18.79,21L19.5,20.29L12,2Z"/></svg>
+                        Zábava 365
+                    </a>
+                    <p>Vytváříme radost a nezapomenutelné zážitky pro vaše nejmenší i velké akce.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Kontakt</h4>
+                    <ul>
+                        <li><svg viewBox="0 0 24 24"><path d="M20,15.5C18.8,15.5 17.5,15.3 16.4,14.9C16.3,14.9 16.2,14.9 16.1,14.9C15.8,14.9 15.6,15 15.4,15.2L13.2,17.4C10.4,15.9 8.1,13.6 6.6,10.8L8.8,8.6C9.1,8.3 9.2,7.9 9,7.6C8.7,6.5 8.5,5.2 8.5,4C8.5,3.5 8,3 7.5,3H4C3.5,3 3,3.5 3,4C3,13.4 10.6,21 20,21C20.5,21 21,20.5 21,20V16.5C21,16 20.5,15.5 20,15.5Z"/></svg> +420 123 456 789</li>
+                        <li><svg viewBox="0 0 24 24"><path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4M20,8L12,13L4,8V6L12,11L20,6V8Z"/></svg> info@zabava365.cz</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Sledujte nás</h4>
+                    <div class="social-links">
+                        <a href="#">FB</a>
+                        <a href="#">IG</a>
+                        <a href="#">YT</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Zábavní Servis 365. Všechna práva vyhrazena.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        // Hamburger Menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('nav-links');
+        
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('open');
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => observer.observe(el));
+
+        // Smooth Scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                navLinks.classList.remove('active');
+                hamburger.classList.remove('open');
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </body>
+</html>
+
+
