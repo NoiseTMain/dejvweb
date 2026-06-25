@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZÁBAVNÍ SERVIS 365 | Kompletní párty management</title>
+    <style>
+        /* --- GLOBALNÍ KONFIGURACE (Základ pro tisíce řádků) ---
+           Zde budeme postupně definovat celou vizuální identitu.
+        */
+        :root {
+            --primary-yellow: #FFD700;
+            --primary-blue: #4facfe;
+            --primary-orange: #FFA500;
+            --primary-green: #77dd77;
+            --dark-gray: #333333;
+            --light-bg: #fdfdfd;
+            --transition: all 0.3s ease-in-out;
+            --max-width: 1280px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Roboto, sans-serif; background-color: var(--light-bg); color: var(--dark-gray); }
+
+        /* --- SYSTÉM KOMPONENT --- */
+        .container { max-width: var(--max-width); margin: 0 auto; padding: 0 20px; }
+
+        /* 1. NAVBAR - bude se rozšiřovat o mobilní menu (JavaScript) */
+        nav { background: white; padding: 20px 0; border-bottom: 2px solid var(--primary-yellow); position: sticky; top: 0; z-index: 1000; }
+        .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+
+        /* 2. HERO - hlavní vizuální sekce */
+        #hero { padding: 120px 0; background: linear-gradient(135deg, var(--primary-blue), #00f2fe); color: white; text-align: center; }
+        
+        /* 3. GRID SLUŽEB - komplexní modulární systém */
+        #services { padding: 80px 0; }
+        .grid-services { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        
+        /* 4. KONTAKTNÍ FORMULÁŘ - připraveno pro napojení na backend */
+        #contact { padding: 80px 0; background: var(--dark-gray); color: white; }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="container nav-flex">
+            <div class="logo"><h2>ZÁBAVNÍ SERVIS 365</h2></div>
+            <ul class="nav-links">
+                <li><a href="#hero">Domů</a></li>
+                <li><a href="#services">Služby</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="hero">
+        <div class="container">
+            <h1>KOMPLETNÍ ZÁBAVA PRO KAŽDOU PÁRTY</h1>
+            <p>Vše na jednom místě. Profesionálně, spolehlivě, nezapomenutelně.</p>
+        </div>
+    </section>
+
+    <section id="services">
+        <div class="container">
+            <h2>Naše nabídka</h2>
+            <div class="grid-services">
+                <div class="card"><h3>Maskoti</h3><p>Detailní popis maskotů...</p></div>
+                <div class="card"><h3>Cukrová vata</h3><p>Detailní popis cukrové vaty...</p></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Napište nám</h2>
+            </div>
+    </section>
+
+</body>
+</html>
