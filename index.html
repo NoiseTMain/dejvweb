@@ -71,9 +71,10 @@
             border: none;
             text-align: center;
             text-transform: uppercase;
-            /* Oprava pro ÁV */
+            /* Zde byla provedena oprava: vypnutí ligatur pro správné zobrazení ÁV */
             letter-spacing: 1.2px;
             font-variant-ligatures: none;
+            font-feature-settings: "liga" 0;
         }
 
         .btn-green {
@@ -98,7 +99,8 @@
             transform: translateY(-2px);
         }
 
-        /* --- HEADER & NAV --- */
+        /* --- Zbytek kódu zůstává beze změny --- */
+
         header {
             background-color: var(--white);
             position: sticky;
@@ -177,7 +179,6 @@
         
         .nav-links li a:hover i, .nav-links li a.active i { color: var(--white); }
 
-        /* --- SPA SECTIONS --- */
         .page-section {
             display: none;
             animation: fadeIn 0.5s ease forwards;
@@ -192,7 +193,6 @@
             to { opacity: 1; }
         }
 
-        /* --- HERO SECTION --- */
         .hero {
             position: relative;
             background: url('https://i.ibb.co/5W4DDWz2/image.png') center/cover no-repeat;
@@ -273,7 +273,6 @@
             height: 60px;
         }
 
-        /* --- SECTION TITLES --- */
         .section-title {
             text-align: center;
             font-size: 32px;
@@ -289,7 +288,6 @@
             color: var(--orange);
         }
 
-        /* --- SERVICES CARDS GRID --- */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
