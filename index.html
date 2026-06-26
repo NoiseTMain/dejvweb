@@ -71,7 +71,6 @@
             border: none;
             text-align: center;
             text-transform: uppercase;
-            /* Zde byla provedena oprava: vypnutí ligatur pro správné zobrazení ÁV */
             letter-spacing: 1.2px;
             font-variant-ligatures: none;
             font-feature-settings: "liga" 0;
@@ -98,8 +97,6 @@
         .btn:hover {
             transform: translateY(-2px);
         }
-
-        /* --- Zbytek kódu zůstává beze změny --- */
 
         header {
             background-color: var(--white);
@@ -718,8 +715,10 @@
                     <img src="https://images.unsplash.com/photo-1572911438217-0f820c78a486?auto=format&fit=crop&w=400&q=80" alt="Akce">
                     <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=400&q=80" alt="Akce">
                 </div>
+                <div style="text-align: center; margin-top: 30px;">
+                    <a href="galerie.html" class="btn btn-green">UKÁZAT VÍCE</a>
+                </div>
             </div>
-
             <div class="refs-wrapper">
                 <div class="wave-top">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
