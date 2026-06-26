@@ -811,7 +811,7 @@
             <h2>ZÁBAVNÍ SERVIS 365 <i class="fa-solid fa-paw"></i></h2>
             <p style="margin-bottom: 30px; font-size: 18px;">Vyplňte formulář a my se vám obratem ozveme s nabídkou!</p>
             
-            <form class="contact-form">
+            <form class="contact-form" action="https://formspree.io/f/xjgqwoal" method="POST">
                 <div class="form-row">
                     <input type="text" name="jmeno" placeholder="Jméno a příjmení *" required>
                     <input type="email" name="email" placeholder="Email *" required>
@@ -914,7 +914,7 @@
             submitButton.innerText = "ODESÍLÁM...";
 
             try {
-                const response = await fetch("https://formspree.io/f/xjgqwoal", {
+                const response = await fetch(form.action, {
                     method: "POST",
                     body: data,
                     headers: {
@@ -926,15 +926,18 @@
                     // Úspěšně odesláno - zobrazíme modál a vyresetujeme formulář
                     document.getElementById('successModalOverlay').classList.add('active');
                     form.reset();
+                    // Vrátíme tlačítko do původního stavu
+                    submitButton.disabled = false;
+                    submitButton.innerText = originalButtonText;
                 } else {
-                    // Formspree vrátilo chybu
-                    alert('Omlouváme se, ale odeslání se nezdařilo. Zkontrolujte prosím zadaná data.');
+                    // Pokud Formspree skryté odeslání zablokuje (např. kvůli ochraně proti spamu/reCAPTCHA), 
+                    // spustíme "záchrannou brzdu" a formulář odešleme klasicky, aby nepřišel nazmar.
+                    console.log("Formspree zablokovalo AJAX, spouštím klasické odeslání.");
+                    form.submit();
                 }
             } catch (error) {
                 // Selhalo síťové připojení
                 alert('Došlo k chybě připojení. Zkontrolujte prosím internet a zkuste to znovu.');
-            } finally {
-                // Vrátíme tlačítko do původního stavu
                 submitButton.disabled = false;
                 submitButton.innerText = originalButtonText;
             }
