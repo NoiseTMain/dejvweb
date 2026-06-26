@@ -6,7 +6,8 @@
     <title>Zábavní Servis 365</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Import moderních kulatých fontů s plnou podporou české diakritiky (latin-ext) -->
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -21,7 +22,7 @@
             --white: #FFFFFF;
             --text-dark: #333333;
             --text-gray: #666666;
-            --font-heading: 'Fredoka', sans-serif;
+            --font-heading: 'Baloo 2', cursive, sans-serif;
             --font-body: 'Nunito', sans-serif;
             --shadow: 0 8px 24px rgba(0,0,0,0.1);
         }
@@ -37,13 +38,20 @@
             color: var(--text-dark);
             background-color: var(--white);
             overflow-x: hidden;
-            letter-spacing: 0.3px;
+            /* Nastavení správného kerningu a čitelnosti */
+            font-feature-settings: "kern" 1;
+            font-kerning: normal;
+            line-height: 1.6;
+            letter-spacing: normal;
         }
 
         h1, h2, h3, h4 {
             font-family: var(--font-heading);
-            font-weight: 600;
-            letter-spacing: 1px;
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: normal;
+            font-feature-settings: "kern" 1;
+            font-kerning: normal;
         }
 
         a {
@@ -64,16 +72,17 @@
             padding: 12px 30px;
             border-radius: 50px;
             font-family: var(--font-heading);
-            font-size: 16px;
+            font-size: 18px; /* Baloo 2 snese trochu větší velikost */
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
             border: none;
             text-align: center;
             text-transform: uppercase;
-            letter-spacing: 1.2px;
+            letter-spacing: 0.5px;
             font-variant-ligatures: none;
-            font-feature-settings: "liga" 0;
+            font-feature-settings: "liga" 0, "kern" 1;
+            font-kerning: normal;
         }
 
         .btn-green {
@@ -118,18 +127,18 @@
             align-items: center;
             gap: 10px;
             font-family: var(--font-heading);
-            font-size: 28px;
+            font-size: 32px;
             color: var(--cyan);
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            line-height: 1;
-            letter-spacing: 1px;
+            line-height: 1.1;
         }
 
         .logo span {
             color: var(--orange);
             display: block;
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: 600;
         }
 
         .logo i {
@@ -149,12 +158,12 @@
             align-items: center;
             font-family: var(--font-heading);
             font-weight: 600;
-            font-size: 14px;
+            font-size: 16px;
             color: var(--text-dark);
             padding: 10px;
             border-radius: 15px;
             transition: 0.3s;
-            letter-spacing: 1px;
+            letter-spacing: 0.2px;
         }
 
         .nav-links li a i {
@@ -216,7 +225,7 @@
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 52px;
             text-transform: uppercase;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
             margin-bottom: 10px;
@@ -224,16 +233,18 @@
         }
 
         .hero p {
-            font-size: 24px;
+            font-size: 26px;
             font-family: var(--font-heading);
             margin-bottom: 30px;
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            line-height: 1.4;
         }
 
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         .wave-bottom {
@@ -272,7 +283,7 @@
 
         .section-title {
             text-align: center;
-            font-size: 32px;
+            font-size: 36px;
             color: var(--text-dark);
             margin: 60px 0 40px 0;
             text-transform: uppercase;
@@ -318,12 +329,12 @@
         }
 
         .service-card h3 {
-            font-size: 20px;
+            font-size: 22px;
             margin-bottom: 10px;
         }
 
         .service-card p {
-            font-size: 14px;
+            font-size: 15px;
             margin-bottom: 20px;
             flex-grow: 1;
         }
@@ -359,10 +370,11 @@
         .mascot-card h3 {
             color: var(--text-dark);
             margin-bottom: 10px;
+            font-size: 24px;
         }
 
         .mascot-card p {
-            font-size: 14px;
+            font-size: 15px;
             color: var(--text-gray);
             margin-bottom: 15px;
         }
@@ -422,6 +434,7 @@
         .ref-card h4 {
             margin-top: 15px;
             color: var(--cyan);
+            font-size: 20px;
         }
 
         footer {
@@ -433,7 +446,7 @@
         }
 
         footer h2 {
-            font-size: 36px;
+            font-size: 40px;
             margin-bottom: 30px;
             display: flex;
             align-items: center;
@@ -473,7 +486,8 @@
             font-family: var(--font-body);
             font-size: 16px;
             margin-bottom: 20px;
-            min-height: 100px;
+            min-height: 120px;
+            resize: vertical;
         }
 
         .footer-bottom {
@@ -486,7 +500,8 @@
             .nav-links {
                 display: none;
             }
-            .hero h1 { font-size: 36px; }
+            .hero h1 { font-size: 38px; }
+            .section-title { font-size: 28px; }
             .form-row { flex-direction: column; }
         }
 
@@ -545,7 +560,7 @@
 
         .modal-title-top {
             color: #177E89;
-            font-size: 26px;
+            font-size: 28px;
             font-weight: 700;
             text-transform: uppercase;
             display: block;
@@ -553,7 +568,7 @@
 
         .modal-title-mid {
             color: var(--orange);
-            font-size: 42px;
+            font-size: 46px;
             font-weight: 700;
             margin: 5px 0;
             display: flex;
@@ -564,12 +579,12 @@
         
         .modal-title-mid i {
             color: #A0C4C7;
-            font-size: 18px;
+            font-size: 20px;
         }
 
         .modal-title-bot {
             color: #177E89;
-            font-size: 28px;
+            font-size: 30px;
             font-weight: 700;
             text-transform: uppercase;
             display: flex;
@@ -642,7 +657,7 @@
                     <h1>Kompletní zábava pro každou párty</h1>
                     <p>- VŠE NA JEDNÉM MÍSTĚ! -</p>
                     <div class="hero-buttons">
-                        <button class="btn btn-green" onclick="scrollToFooter()">Vytvořit poptavku</button>
+                        <button class="btn btn-green" onclick="scrollToFooter()">Vytvořit poptávku</button>
                         <button class="btn btn-yellow" onclick="scrollToServices()">Prohlédnout balíčky</button>
                     </div>
                 </div>
@@ -655,7 +670,7 @@
             </div>
 
             <div class="container" id="services-anchor">
-                <h2 class="section-title"><i class="fa-solid fa-paw"></i> VAŠE OSLAVA PŘESNĚ PODLE VÁS ZÁBAVNÍ SERVIS 365 <i class="fa-solid fa-paw"></i></h2>
+                <h2 class="section-title"><i class="fa-solid fa-paw"></i> VAŠE OSLAVA PŘESNĚ PODLE VÁS <i class="fa-solid fa-paw"></i></h2>
                 <div class="services-grid">
                     <div class="service-card sc-cyan" onclick="navigateTo('maskoti')">
                         <img src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=400&q=80" alt="Maskoti">
@@ -666,7 +681,7 @@
                     <div class="service-card sc-green" onclick="navigateTo('cukrova-vata')">
                         <img src="https://images.unsplash.com/photo-1572911438217-0f820c78a486?auto=format&fit=crop&w=400&q=80" alt="Vata">
                         <h3>CUKROVÁ VATA</h3>
-                        <p>Jsme ti co vám udělají vatu do různých tvarů a barev. Výborná volba!</p>
+                        <p>Jsme ti, co vám udělají vatu do různých tvarů a barev. Výborná volba!</p>
                         <button class="btn btn-cyan">CHCI POPTÁVKU</button>
                     </div>
                     <div class="service-card sc-yellow" onclick="navigateTo('malovani')">
@@ -678,7 +693,7 @@
                     <div class="service-card sc-orange" onclick="navigateTo('popcorn')">
                         <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=400&q=80" alt="Popcorn">
                         <h3>POPCORN</h3>
-                        <p>Nezapomenutelné zážitky popcorn čerstvý, sypaný i sladký. Uděláme vše.</p>
+                        <p>Nezapomenutelné zážitky, popcorn čerstvý, sypaný i sladký. Uděláme vše.</p>
                         <button class="btn btn-cyan">CHCI POPCORN</button>
                     </div>
                 </div>
