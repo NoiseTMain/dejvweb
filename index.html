@@ -489,6 +489,135 @@
             .hero h1 { font-size: 36px; }
             .form-row { flex-direction: column; }
         }
+
+        /* --- VYSKAKOVACÍ OKNO PODĚKOVÁNÍ (MODAL) --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0, 0, 0, 0.6); /* Ztmavení pozadí */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+            padding: 20px;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-box {
+            background: #FAFAFB;
+            width: 100%;
+            max-width: 420px;
+            border-radius: 20px;
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+            transform: translateY(30px) scale(0.95);
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .modal-overlay.active .modal-box {
+            transform: translateY(0) scale(1);
+        }
+
+        /* Spodní vlnka/zaoblení dekorace uvnitř modálu */
+        .modal-box::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 100%; height: 60px;
+            background: #e8f5f6; /* Světle modrá vlnka */
+            border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+            z-index: 1;
+        }
+
+        .modal-header {
+            font-family: var(--font-heading);
+            margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal-title-top {
+            color: #177E89; /* Tmavší modro-zelená */
+            font-size: 26px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: block;
+        }
+
+        .modal-title-mid {
+            color: var(--orange);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 5px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        /* Dekorativní jiskřičky kolem čísla */
+        .modal-title-mid i {
+            color: #A0C4C7; /* Decentní modrá pro jiskry */
+            font-size: 18px;
+        }
+
+        .modal-title-bot {
+            color: #177E89;
+            font-size: 28px;
+            font-weight: 700;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .modal-title-bot .dashes {
+            color: var(--orange);
+            font-weight: 400;
+        }
+
+        .modal-body {
+            font-size: 16px;
+            color: #4a4a4a;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Kulaté tlačítko s fajfkou */
+        .modal-check-btn {
+            background-color: #38A3A5; /* Hezká teal barva */
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(56, 163, 165, 0.4);
+            position: relative;
+            z-index: 2;
+            transition: transform 0.2s;
+        }
+
+        .modal-check-btn:hover {
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
@@ -708,6 +837,28 @@
         </div>
     </footer>
 
+    <div id="successModalOverlay" class="modal-overlay" onclick="closeModal()">
+        <div class="modal-box" onclick="event.stopPropagation()">
+            <div class="modal-header">
+                <span class="modal-title-top">ZÁBAVNÍ SERVIS</span>
+                <div class="modal-title-mid">
+                    <i class="fa-solid fa-sparkles"></i>
+                    <span>365</span>
+                    <i class="fa-solid fa-sparkles"></i>
+                </div>
+                <div class="modal-title-bot">
+                    <span class="dashes">≡</span> DĚKUJEME! <span class="dashes">≡</span>
+                </div>
+            </div>
+            <div class="modal-body">
+                Vaše zpráva byla úspěšně odeslána.<br>Ozveme se vám do 48 hodin.
+            </div>
+            <button class="modal-check-btn" onclick="closeModal()">
+                <i class="fa-solid fa-check"></i>
+            </button>
+        </div>
+    </div>
+
     <script>
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page-section');
@@ -744,6 +895,11 @@
             scrollToFooter();
         }
 
+        // Zavření vyskakovacího okna
+        function closeModal() {
+            document.getElementById('successModalOverlay').classList.remove('active');
+        }
+
         /* --- FORMSPREE AJAX NAPOJENÍ --- */
         document.querySelector('.contact-form').addEventListener('submit', async function(event) {
             event.preventDefault(); // Zabráníme klasickému přesměrování a opuštění webu
@@ -767,11 +923,11 @@
                 });
                 
                 if (response.ok) {
-                    // Úspěšně odesláno - zachováme vyskakovací okno i reset formuláře
-                    alert('Děkujeme za poptávku! Ozveme se vám do 48 hodin.');
+                    // Úspěšně odesláno - zobrazíme modál a vyresetujeme formulář
+                    document.getElementById('successModalOverlay').classList.add('active');
                     form.reset();
                 } else {
-                    // Formspree vrátilo chybu (např. špatný endpoint)
+                    // Formspree vrátilo chybu
                     alert('Omlouváme se, ale odeslání se nezdařilo. Zkontrolujte prosím zadaná data.');
                 }
             } catch (error) {
