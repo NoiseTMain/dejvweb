@@ -628,6 +628,52 @@
         .modal-check-btn:hover {
             transform: scale(1.1);
         }
+
+        /* --- NOVÁ SEKCE KLIENTŮ --- */
+        .clients-section {
+            margin-top: 80px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+
+        .clients-title {
+            font-size: 32px;
+            color: var(--text-dark);
+            margin-bottom: 50px;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .clients-grid {
+            display: grid;
+            grid-template-columns: 1fr; /* Mobilní zobrazení ve sloupci */
+            gap: 40px;
+            align-items: center;
+            justify-items: center;
+            padding: 0 20px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .clients-grid img {
+            max-width: 220px;
+            max-height: 100px;
+            object-fit: contain;
+        }
+
+        /* Responzivní grid pro větší obrazovky */
+        @media (min-width: 600px) {
+            .clients-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width: 900px) {
+            .clients-grid {
+                grid-template-columns: repeat(5, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -733,6 +779,7 @@
                     <a href="galerie.html" class="btn btn-green">UKÁZAT VÍCE</a>
                 </div>
             </div>
+            
             <div class="refs-wrapper">
                 <div class="wave-top">
                     <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -762,7 +809,18 @@
                     </div>
                 </div>
             </div>
-        </section>
+
+            <div class="container clients-section">
+                <h2 class="clients-title">Vybraní klienti, kteří<br>nám<br>dali svoji důvěru</h2>
+                <div class="clients-grid">
+                    <img src="" alt="Equa bank">
+                    <img src="" alt="Letiště Praha">
+                    <img src="" alt="Vodafone">
+                    <img src="" alt="Městská část Praha 5">
+                    <img src="" alt="Kika">
+                </div>
+            </div>
+            </section>
 
         <section id="maskoti" class="page-section container" style="margin-top: 40px;">
             <h2 class="section-title">NÁŠ TÝM MASKOTŮ</h2>
