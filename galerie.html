@@ -175,7 +175,7 @@
             color: var(--orange);
         }
 
-        /* --- STYLY SPECIFICKÉ PRO PLNOU GALERII --- */
+        /* --- STYLY PRO GALERII A ALBUM KARTY --- */
         .full-gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -183,7 +183,7 @@
             padding-bottom: 60px;
         }
         
-        .full-gallery-grid img {
+        .full-gallery-grid > img {
             width: 100%;
             height: 250px;
             object-fit: cover;
@@ -193,9 +193,57 @@
             cursor: pointer;
         }
 
-        .full-gallery-grid img:hover {
+        .full-gallery-grid > img:hover {
             transform: scale(1.03);
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+        }
+
+        .album-card {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: transform 0.3s;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            color: var(--text-dark);
+            border: 2px solid transparent;
+        }
+
+        .album-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--cyan);
+        }
+
+        .album-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 15px;
+        }
+
+        .album-card h3 {
+            font-size: 20px;
+            margin: 0 15px 10px 15px;
+            color: var(--text-dark);
+        }
+
+        .album-card p {
+            margin: 0 15px 20px 15px;
+            font-size: 14px;
+            color: var(--text-gray);
+            flex-grow: 1;
+        }
+
+        .top-actions {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 40px;
         }
 
         footer {
@@ -339,21 +387,39 @@
 
     <main>
         <div class="container">
-            <h2 class="section-title"><i class="fa-solid fa-camera"></i> KOMPLETNÍ GALERIE <i class="fa-solid fa-camera"></i></h2>
+            <h2 class="section-title"><i class="fa-solid fa-camera"></i> NAŠE AKCE <i class="fa-solid fa-camera"></i></h2>
+            
+            <div class="top-actions">
+                <a href="index.html" class="btn btn-yellow"><i class="fa-solid fa-house"></i> DOMOVSKÁ STRÁNKA</a>
+            </div>
             
             <div class="full-gallery-grid">
-                <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1572911438217-0f820c78a486?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1527529482837-4698179dc6ce?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1605369572399-05d8d64a0f6e?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1516997121675-4c2d1684aa3e?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1472653431158-6364773b2a56?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=600&q=80" alt="Akce">
-                <img src="https://images.unsplash.com/photo-1608889175123-8ee362201f81?auto=format&fit=crop&w=600&q=80" alt="Akce">
+                <a href="praha-jizni-skola.html" class="album-card">
+                    <img src="https://images.unsplash.com/photo-1530103862676-de8c9debad1d?auto=format&fit=crop&w=600&q=80" alt="Praha Jižní Škola">
+                    <h3>Praha Jižní Škola</h3>
+                    <p>Prohlédnout fotografie z uspořádané akce</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="btn" style="background-color: var(--cyan); color: white; border: none; font-size: 14px;">OTEVŘÍT GALERII</span>
+                    </div>
+                </a>
+
+                <a href="praha-severni-skola.html" class="album-card">
+                    <img src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=600&q=80" alt="Praha Severní Škola">
+                    <h3>Praha Severní Škola</h3>
+                    <p>Zábavné odpoledne plné smíchu a her</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="btn" style="background-color: var(--cyan); color: white; border: none; font-size: 14px;">OTEVŘÍT GALERII</span>
+                    </div>
+                </a>
+
+                <a href="brno-centrum.html" class="album-card">
+                    <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=600&q=80" alt="Brno Centrum">
+                    <h3>Brno Centrum</h3>
+                    <p>Nezapomenutelný zážitek pro všechny děti</p>
+                    <div style="margin-bottom: 20px;">
+                        <span class="btn" style="background-color: var(--cyan); color: white; border: none; font-size: 14px;">OTEVŘÍT GALERII</span>
+                    </div>
+                </a>
             </div>
             
         </div>
