@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O nás - Zábavní Servis 365</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --cyan: #3CBCC3;
+            --light-cyan: #E0F7FA;
+            --orange: #FF9800;
+            --yellow: #FFC107;
+            --green: #8BC34A;
+            --light-green: #DCEDC8;
+            --pink: #E91E63;
+            --white: #FFFFFF;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --font-heading: 'Baloo 2', cursive, sans-serif;
+            --font-body: 'Nunito', sans-serif;
+            --shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font-body);
+            color: var(--text-dark);
+            background-color: var(--white);
+            overflow-x: hidden;
+            font-feature-settings: "kern" 1;
+            font-kerning: normal;
+            line-height: 1.6;
+            letter-spacing: normal;
+        }
+
+        h1, h2, h3, h4 {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            line-height: 1.3;
+            letter-spacing: normal;
+            font-feature-settings: "kern" 1;
+            font-kerning: normal;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-family: var(--font-heading);
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: none;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-variant-ligatures: none;
+            font-feature-settings: "liga" 0, "kern" 1;
+            font-kerning: normal;
+        }
+
+        .btn-green {
+            background-color: var(--green);
+            color: var(--white);
+            box-shadow: 0 4px 0 #689F38;
+        }
+        
+        .btn-yellow {
+            background-color: var(--yellow);
+            color: var(--text-dark);
+            box-shadow: 0 4px 0 #FFA000;
+        }
+
+        .btn-cyan {
+            background-color: rgba(255,255,255,0.3);
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        header {
+            background-color: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 10px 0;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: var(--font-heading);
+            font-size: 32px;
+            color: var(--cyan);
+            font-weight: 800;
+            text-transform: uppercase;
+            line-height: 1.1;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links li a {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 16px;
+            color: var(--text-dark);
+            padding: 10px;
+            border-radius: 15px;
+            transition: 0.3s;
+            letter-spacing: 0.2px;
+        }
+
+        .nav-links li a i {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+
+        .nav-links li a:hover, .nav-links li a.active {
+            background-color: var(--cyan);
+            color: var(--white);
+        }
+        
+        .nav-links li:nth-child(1) i { color: var(--green); }
+        .nav-links li:nth-child(2) i { color: var(--orange); }
+        .nav-links li:nth-child(3) i { color: var(--pink); }
+        .nav-links li:nth-child(4) i { color: var(--text-dark); }
+        .nav-links li:nth-child(5) i { color: var(--yellow); }
+        .nav-links li:nth-child(6) i { color: var(--cyan); }
+        
+        .nav-links li a:hover i, .nav-links li a.active i { color: var(--white); }
+
+        .section-title {
+            text-align: center;
+            font-size: 42px;
+            color: var(--text-dark);
+            margin: 50px 0 30px 0;
+            text-transform: uppercase;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .content-box {
+            max-width: 850px;
+            margin: 0 auto 80px auto;
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--text-dark);
+            padding: 0 20px;
+        }
+
+        .content-box p {
+            margin-bottom: 20px;
+        }
+
+        .content-box .highlight-text {
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--cyan);
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        .content-box .signature {
+            margin-top: 40px;
+            font-size: 19px;
+            border-top: 2px dashed var(--light-cyan);
+            padding-top: 20px;
+        }
+
+        .wave-top {
+            position: absolute;
+            top: -59px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+
+        .wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
+        }
+
+        footer {
+            background-color: var(--cyan);
+            color: var(--white);
+            padding: 80px 0 40px 0;
+            position: relative;
+            text-align: center;
+        }
+
+        .contact-form {
+            max-width: 800px;
+            margin: 0 auto;
+            background: rgba(255,255,255,0.1);
+            padding: 40px;
+            border-radius: 30px;
+        }
+
+        .form-row {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .form-row input, .form-row select {
+            flex: 1;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 16px;
+        }
+
+        .contact-form textarea {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: none;
+            font-family: var(--font-body);
+            font-size: 16px;
+            margin-bottom: 20px;
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+            .section-title { font-size: 32px; }
+            .form-row { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container navbar">
+            <div class="logo" style="cursor: pointer; display: flex; align-items: center;" onclick="window.location.href='index.html'">
+                <img src="https://i.ibb.co/mrH3mkv8/image.png" alt="Zábavní Servis 365" style="height: 55px; width: auto; object-fit: contain;">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> DOMŮ</a></li>
+                <li><a href="index.html#maskoti"><i class="fa-solid fa-hippo"></i> MASKOTI</a></li>
+                <li><a href="index.html#cukrova-vata"><i class="fa-solid fa-ice-cream"></i> CUKROVÁ VATA</a></li>
+                <li><a href="index.html#malovani"><i class="fa-solid fa-palette"></i> MALOVÁNÍ</a></li>
+                <li><a href="index.html#popcorn"><i class="fa-solid fa-popcorn"></i> POPCORN</a></li>
+                <li><a href="#footer" onclick="scrollToFooter()"><i class="fa-solid fa-phone"></i> KONTAKT</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1 class="section-title">O nás</h1>
+        
+        <div class="content-box">
+            <p class="highlight-text">Působíme na celém území ČR a SK.</p>
+            
+            <p>Chystáte se pořádat Váš velký den? Jsme ta správná volba pro realizaci Vaší akce.</p>
+            
+            <p>Naše agentura realizuje doprovodné a zábavné programy pro společenské a firemní akce, dlouholetá praxe nám umožňuje v případě potřeby zajistit i produkční stránku akce.</p>
+            
+            <p>Disponujeme vlastním fondem zábavných atrakcí a technického zázemí, který neustále rozšiřujeme na základě Vaší poptávky.</p>
+            
+            <p>Poskytujeme vysokou úroveň služeb k plné spokojenosti zákazníka. Jsme sehraný tým lidí, které pojí dlouholeté zkušenosti a kreativní myšlení.</p>
+            
+            <p>Na trhu jsme od roku 2006, za sebou máme řadu úspěšně realizovaných akcí a spokojených klientů.</p>
+            
+            <p>Nabízíme pronájem nafukovacích a zábavních atrakcí, balónkové dekorace, animační programy, vystoupení klaunů, kouzelníky, zajistíme ozvučení, nůžkové stany, pronájem podií i organizační servis.</p>
+            
+            <p>Každoročně zajišťujeme firemní akce, večírky, klientské párty, dětské dny, akce pro obchodní centra, reklamu, film i soukromé oslavy. Agenturám garantujeme diskrétnost při akcích, které pořádají pro své klienty.</p>
+            
+            <p>Využít můžete také naši půjčovnu atrakcí a technického zázemí.</p>
+            
+            <p style="font-weight: 600; color: var(--orange);">Nabízíme 100% přístup.</p>
+            
+            <p>Naší prioritou jsou spokojení zákazníci a dlouhodobá partnerství.</p>
+            
+            <p>Věříme, že i Vy si vyberete z naší pestré nabídky.</p>
+            
+            <div class="signature">
+                <p><strong>Za tým Zabavniservis365.cz</strong></p>
+                <p style="font-family: var(--font-heading); font-size: 22px; color: var(--cyan); font-weight: 700;">David Jůna</p>
+            </div>
+        </div>
+    </main>
+
+    <footer id="footer">
+        <div class="wave-top" style="top: -59px;">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C400,90 800,30 1200,70 L1200,120 L0,120 Z" fill="#E0F7FA"></path>
+            </svg>
+        </div>
+        <div class="container">
+            <div style="margin-bottom: 30px;">
+                <img src="https://i.ibb.co/mrH3mkv8/image.png" alt="Zábavní Servis 365" style="height: 65px; width: auto; object-fit: contain;">
+            </div>
+            <form class="contact-form" action="https://formspree.io/f/xjgqwoal" method="POST">
+                <div class="form-row">
+                    <input type="text" name="jmeno" placeholder="Jméno a příjmení *" required>
+                    <input type="email" name="email" placeholder="Email *" required>
+                </div>
+                <div class="form-row">
+                    <input type="tel" name="telefon" placeholder="Telefon *">
+                    <select name="sluzba" id="contact-service">
+                        <option value="">Vyberte službu o kterou máte zájem...</option>
+                        <option value="maskoti">Maskoti</option>
+                        <option value="vata">Cukrová vata</option>
+                        <option value="malovani">Malování & Tetování</option>
+                        <option value="popcorn">Popcorn</option>
+                        <option value="komplet">Kompletní balíček</option>
+                    </select>
+                </div>
+                <textarea name="zprava" placeholder="Napište nám detaily akce (datum, místo, věk dětí...)" required></textarea>
+                <button type="submit" class="btn btn-yellow" style="width: 100%; font-size: 18px;">ODESLAT POPTÁVKU</button>
+            </form>
+        </div>
+    </footer>
+
+    <section class="container" style="margin-top: 50px; margin-bottom: 50px; padding: 40px 20px; background: var(--white); border-top: 4px solid var(--light-cyan); text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left;">
+            <div>
+                <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--cyan); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--orange); padding-bottom: 5px; display: inline-block;">Kontakt</h3>
+                <p style="font-size: 16px; margin-bottom: 8px; color: var(--text-dark); font-family: var(--font-body);">
+                    <strong>E-mail:</strong> <a href="mailto:info@zabavniservis365.cz" style="color: var(--cyan); font-weight: 600; text-decoration: underline;">info@zabavniservis365.cz</a>
+                </p>
+                <p style="font-size: 16px; color: var(--text-dark); font-family: var(--font-body);">
+                    <strong>Mobil:</strong> <a href="tel:+420604600603" style="color: var(--cyan); font-weight: 600; text-decoration: underline;">+420 604 600 603</a>
+                </p>
+            </div>
+            <div>
+                <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--cyan); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--orange); padding-bottom: 5px; display: inline-block;">Provozovatel</h3>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-dark); font-family: var(--font-body); font-weight: 700;">David Jůna</p>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-gray); font-family: var(--font-body);">IČ: 717 87 615</p>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-gray); font-family: var(--font-body);">DIČ: CZ7701080046</p>
+                <p style="font-size: 16px; color: var(--text-gray); font-family: var(--font-body); line-height: 1.4;">
+                    <strong>Adresa:</strong> Šífařská 568/18, 147 00 Praha 4 – Hodkovičky
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function scrollToFooter() { document.getElementById('footer').scrollIntoView({ behavior: 'smooth' }); }
+    </script>
+</body>
+</html>
