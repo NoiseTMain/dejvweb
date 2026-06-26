@@ -37,7 +37,6 @@
             color: var(--text-dark);
             background-color: var(--white);
             overflow-x: hidden;
-            /* Nastavení správného kerningu a čitelnosti */
             font-feature-settings: "kern" 1;
             font-kerning: normal;
             line-height: 1.6;
@@ -71,7 +70,7 @@
             padding: 12px 30px;
             border-radius: 50px;
             font-family: var(--font-heading);
-            font-size: 18px; /* Baloo 2 snese trochu větší velikost */
+            font-size: 18px;
             font-weight: 600;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
@@ -647,7 +646,7 @@
 
         .clients-grid {
             display: grid;
-            grid-template-columns: 1fr; /* Mobilní zobrazení ve sloupci */
+            grid-template-columns: 1fr;
             gap: 40px;
             align-items: center;
             justify-items: center;
@@ -657,12 +656,19 @@
         }
 
         .clients-grid img {
-            max-width: 220px;
-            max-height: 100px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            max-height: 80px;
             object-fit: contain;
+            filter: grayscale(100%);
+            transition: filter 0.3s ease;
         }
 
-        /* Responzivní grid pro větší obrazovky */
+        .clients-grid img:hover {
+            filter: grayscale(0%);
+        }
+
         @media (min-width: 600px) {
             .clients-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -811,16 +817,17 @@
             </div>
 
             <div class="container clients-section">
-                <h2 class="clients-title">Vybraní klienti, kteří<br>nám<br>dali svoji důvěru</h2>
+                <h2 class="clients-title">Vybraní klienti, kteří nám dali svoji důvěru</h2>
                 <div class="clients-grid">
-                    <img src="" alt="Equa bank">
-                    <img src="" alt="Letiště Praha">
-                    <img src="" alt="Vodafone">
-                    <img src="" alt="Městská část Praha 5">
-                    <img src="" alt="Kika">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/e/eb/Equa_bank_logo.svg" alt="Equa bank">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Leti%C5%A1t%C4%9B_Praha_logo.svg" alt="Letiště Praha">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Vodafone_logo.svg" alt="Vodafone">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Znak_M%C4%9Bstsk%C3%A9_%C4%8D%C3%A1sti_Praha_5.svg/100px-Znak_M%C4%9Bstsk%C3%A9_%C4%8D%C3%A1sti_Praha_5.svg.png" alt="Městská část Praha 5">
+                    <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Kika_Logo.svg" alt="Kika">
                 </div>
             </div>
-            </section>
+
+        </section>
 
         <section id="maskoti" class="page-section container" style="margin-top: 40px;">
             <h2 class="section-title">NÁŠ TÝM MASKOTŮ</h2>
