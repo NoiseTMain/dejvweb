@@ -190,8 +190,7 @@
         .hero {
             position: relative;
             background: url('https://i.ibb.co/5W4DDWz2/image.png') center/cover no-repeat;
-            padding: 120px 20px 120px 20px;
-            border-radius: 0 0 50px 50px;
+            padding: 120px 20px 180px 20px;
             text-align: center;
             color: var(--white);
             display: flex;
@@ -205,7 +204,6 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5));
-            border-radius: inherit;
         }
 
         .hero-content {
@@ -233,6 +231,41 @@
             display: flex;
             gap: 20px;
             justify-content: center;
+        }
+
+        /* Wavy dividers (Jemné bez ohraničení) */
+        .wave-bottom {
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+
+        .wave-bottom svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 70px;
+        }
+
+        .wave-top {
+            position: absolute;
+            top: -59px;
+            left: 0;
+            width: 100%;
+            overflow: hidden;
+            line-height: 0;
+            z-index: 3;
+        }
+
+        .wave-top svg {
+            position: relative;
+            display: block;
+            width: calc(100% + 1.3px);
+            height: 60px;
         }
 
         /* --- SECTION TITLES --- */
@@ -356,7 +389,6 @@
             padding: 60px 0;
             margin-top: 60px;
             position: relative;
-            border-radius: 50px;
         }
         
         .refs-grid {
@@ -402,7 +434,6 @@
             padding: 80px 0 40px 0;
             position: relative;
             text-align: center;
-            border-radius: 50px 50px 0 0;
         }
 
         footer h2 {
@@ -619,11 +650,17 @@
             <div class="hero">
                 <div class="hero-content">
                     <h1>Kompletní zábava pro každou párty</h1>
-                    <p>- VŠE NA JEDNÉM MÍSTĚ! -</p>
+                    <p>- VŠE NA JEDNÉ MÍSTĚ! -</p>
                     <div class="hero-buttons">
                         <button class="btn btn-green" onclick="scrollToFooter()">Vytvořit poptávku</button>
                         <button class="btn btn-yellow" onclick="scrollToServices()">Prohlédnout balíčky</button>
                     </div>
+                </div>
+                <div class="wave-bottom">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,40 C300,70 900,20 1200,50 L1200,120 L0,120 Z" fill="#3CBCC3" opacity="0.3"></path>
+                        <path d="M0,60 C400,30 800,90 1200,50 L1200,120 L0,120 Z" fill="#FFFFFF"></path>
+                    </svg>
                 </div>
             </div>
 
@@ -672,7 +709,7 @@
                     <div class="mascot-card">
                         <img src="https://images.unsplash.com/photo-1605369572399-05d8d64a0f6e?auto=format&fit=crop&w=200&q=80" style="border-radius:50%;" alt="Drak">
                         <h3>Dráček Šmoula</h3>
-                        <p>Náš drak nechrlí oheň, ale rozdává úsměvy a bonbony. Ideální na focení a soutěže s dětmi.</p>
+                        <p>Náš drak nechrlí oheň, ale rozdává úsměvy and bonbony. Ideální na focení a soutěže s dětmi.</p>
                         <button class="btn btn-green" onclick="selectServiceAndGo('maskoti')">ZJISTIT VÍCE</button>
                     </div>
                     <div class="mascot-card">
@@ -696,6 +733,13 @@
             </div>
 
             <div class="refs-wrapper">
+                <div class="wave-top">
+                    <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                        <path d="M0,80 C300,50 900,100 1200,70 L1200,120 L0,120 Z" fill="#3CBCC3" opacity="0.2"></path>
+                        <path d="M0,60 C400,90 800,30 1200,70 L1200,120 L0,120 Z" fill="#E0F7FA"></path>
+                    </svg>
+                </div>
+                
                 <div class="container">
                     <h2 class="section-title">REFERENCE <i class="fa-solid fa-star" style="color:var(--yellow)"></i></h2>
                     <div class="refs-grid">
@@ -727,7 +771,7 @@
                     <button class="btn btn-green" onclick="selectServiceAndGo('maskoti')">Poptat Maskoty</button>
                 </div>
             </div>
-            <p style="margin-top: 30px; font-size: 18px; text-align: center;">Chcete zažít opravdovou dětskou radost? Naši profesionální maskoti přinesou na vaši akci kouzlo oblíbených dětských pohádek.</p>
+            <p style="margin-top: 30px; font-size: 18px; text-align: center;">Chcete zažít opravdovou dětskou radost? Naši profesionální maskoti přnesou na vaši akci kouzlo oblíbených dětských pohádek.</p>
         </section>
 
         <section id="cukrova-vata" class="page-section container" style="margin-top: 40px;">
@@ -762,6 +806,12 @@
     </main>
 
     <footer id="footer">
+        <div class="wave-top" style="top: -59px;">
+            <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M0,60 C400,90 800,30 1200,70 L1200,120 L0,120 Z" fill="#E0F7FA"></path>
+            </svg>
+        </div>
+        
         <div class="container">
             <h2>ZÁBAVNÍ SERVIS 365 <i class="fa-solid fa-paw"></i></h2>
             <p style="margin-bottom: 30px; font-size: 18px;">Vyplňte formulář a my se vám obratem ozveme s nabídkou!</p>
