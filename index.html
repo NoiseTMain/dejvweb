@@ -697,7 +697,7 @@
                 <li><a href="#" class="nav-item active" id="nav-home" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> DOMŮ</a></li>
                 <li><a href="#" class="nav-item" id="nav-maskoti" onclick="navigateTo('maskoti')"><i class="fa-solid fa-hippo"></i> MASKOTI</a></li>
                 <li><a href="#" class="nav-item" id="nav-vata" onclick="navigateTo('cukrova-vata')"><i class="fa-solid fa-ice-cream"></i> CUKROVÁ VATA</a></li>
-                <li><a href="#" class="nav-item" id="nav-malovani" onclick="navigateTo('malovani')"><i class="fa-solid fa-palette"></i> MALOVÁNÍ</a></li>
+                <li><a href="malovani.html" class="nav-item" id="nav-malovani"><i class="fa-solid fa-palette"></i> MALOVÁNÍ</a></li>
                 <li><a href="#" class="nav-item" id="nav-popcorn" onclick="navigateTo('popcorn')"><i class="fa-solid fa-popcorn"></i> POPCORN</a></li>
                 <li><a href="#" onclick="scrollToFooter()"><i class="fa-solid fa-phone"></i> KONTAKT</a></li>
             </ul>
@@ -738,11 +738,11 @@
                         <p>Jsme ti, co vám udělají vatu do různých tvarů a barev. Výborná volba!</p>
                         <button class="btn btn-cyan">CHCI POPTÁVKU</button>
                     </div>
-                    <div class="service-card sc-yellow" onclick="navigateTo('malovani')">
+                    <div class="service-card sc-yellow" onclick="window.location.href='malovani.html'">
                         <img src="https://images.unsplash.com/photo-1485546246426-74dc88dec4d9?auto=format&fit=crop&w=400&q=80" alt="Malování">
                         <h3>MALOVÁNÍ & TETOVÁNÍ</h3>
                         <p>Nezapomenutelné zážitky. Tvarování, malování a tetování pro všechny.</p>
-                        <button class="btn btn-cyan">CHCI PÁRTY</button>
+                        <button class="btn btn-cyan" onclick="window.location.href='malovani.html'; event.stopPropagation();">CHCI PÁRTY</button>
                     </div>
                     <div class="service-card sc-orange" onclick="navigateTo('popcorn')">
                         <img src="https://images.unsplash.com/photo-1578849278619-e73505e9610f?auto=format&fit=crop&w=400&q=80" alt="Popcorn">
