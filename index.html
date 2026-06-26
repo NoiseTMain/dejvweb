@@ -691,6 +691,7 @@
         <div class="container navbar">
             <div class="logo" style="cursor: pointer; display: flex; align-items: center;" onclick="navigateTo('home')">
                 <img src="https://i.ibb.co/mrH3mkv8/image.png" alt="Zábavní Servis 365" style="height: 55px; width: auto; object-fit: contain;">
+                <div style="font-family: var(--font-heading); font-weight: 800; color: var(--cyan); font-size: 28px; margin-left: 15px; line-height: 1.1; text-transform: uppercase;">ATRAKCE <span style="color: var(--orange); display: inline; font-size: 28px; font-weight: 800;">365</span></div>
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" class="nav-item active" id="nav-home" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> DOMŮ</a></li>
@@ -725,13 +726,13 @@
             <div class="container" id="services-anchor">
                 <h2 class="section-title"><i class="fa-solid fa-paw"></i> VAŠE OSLAVA PŘESNĚ PODLE VÁS <i class="fa-solid fa-paw"></i></h2>
                 <div class="services-grid">
-                    <div class="service-card sc-cyan" onclick="navigateTo('maskoti')">
+                    <div class="service-card sc-cyan" onclick="window.location.href='maskoti.html'">
                         <img src="https://images.unsplash.com/photo-1561055657-b9e0bf0fa360?auto=format&fit=crop&w=400&q=80" alt="Maskoti">
                         <h3>NAŠI MASKOTI</h3>
                         <p>Jsme tým profesionálů, kteří přinášejí radost a smích do vašich dětských oslav.</p>
                         <button class="btn btn-cyan">CHCI ZÁBAVU</button>
                     </div>
-                    <div class="service-card sc-pink" onclick="navigateTo('cukrova-vata')">
+                    <div class="service-card sc-pink" onclick="window.location.href='cukrovavata.html'">
                         <img src="https://images.unsplash.com/photo-1572911438217-0f820c78a486?auto=format&fit=crop&w=400&q=80" alt="Vata">
                         <h3>CUKROVÁ VATA</h3>
                         <p>Jsme ti, co vám udělají vatu do různých tvarů a barev. Výborná volba!</p>
@@ -930,13 +931,16 @@
     <script>
         function navigateTo(pageId) {
             const pages = document.querySelectorAll('.page-section');
-            pages.forEach(page => page.classList.remove('active-page'));
-            const selectedPage = document.getElementById(pageId);
-            if(selectedPage) selectedPage.classList.add('active-page');
-            const navItems = document.querySelectorAll('.nav-item');
-            navItems.forEach(item => item.classList.remove('active'));
-            if(pageId === 'home') document.getElementById('nav-home').classList.add('active');
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            if(document.getElementById(pageId)) {
+                pages.forEach(page => page.classList.remove('active-page'));
+                document.getElementById(pageId).classList.add('active-page');
+                const navItems = document.querySelectorAll('.nav-item');
+                navItems.forEach(item => item.classList.remove('active'));
+                if(pageId === 'home') document.getElementById('nav-home').classList.add('active');
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                window.location.href = 'index.html';
+            }
         }
         function scrollToFooter() { document.getElementById('footer').scrollIntoView({ behavior: 'smooth' }); }
         function scrollToServices() {
