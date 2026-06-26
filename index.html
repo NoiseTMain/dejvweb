@@ -437,6 +437,7 @@
 
         footer {
             background-color: var(--cyan);
+            color: var(--white);
             padding: 80px 0 40px 0;
             position: relative;
             text-align: center;
@@ -685,9 +686,8 @@
 
     <header>
         <div class="container navbar">
-            <div class="logo" style="cursor: pointer;" onclick="navigateTo('home')">
-                <div>ZÁBAVNÍ<span>SERVIS 365</span></div>
-                <i class="fa-brands fa-fort-awesome"></i>
+            <div class="logo" style="cursor: pointer; display: flex; align-items: center;" onclick="navigateTo('home')">
+                <img src="https://i.ibb.co/mrH3mkv8/image.png" alt="Zábavní Servis 365" style="height: 55px; width: auto; object-fit: contain;">
             </div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" class="nav-item active" id="nav-home" onclick="navigateTo('home')"><i class="fa-solid fa-house"></i> DOMŮ</a></li>
@@ -753,7 +753,7 @@
                     <div class="mascot-card">
                         <img src="https://images.unsplash.com/photo-1583337130417-3346a1be7dee?auto=format&fit=crop&w=200&q=80" style="border-radius:50%;" alt="Bambi">
                         <h3>Maskot 1</h3>
-                        <p>Veselý maskot plný energie. Zaručeně roztančí každou oslavu a děti ho milují pro jeho huňaté uši.</p>
+                        <p>Veselý maskot plný energy. Zaručeně roztančí každou oslavu a děti ho milují pro jeho huňaté uši.</p>
                         <button class="btn btn-green" onclick="selectServiceAndGo('maskoti')">ZJISTIT VÍCE</button>
                     </div>
                     <div class="mascot-card">
@@ -818,7 +818,7 @@
             <div class="container clients-section">
                 <h2 class="clients-title">Vybraní klienti, kteří nám dali svoji důvěru</h2>
                 <div class="clients-grid" style="display: flex; justify-content: center; align-items: center;">
-                    <img src="https://i.ibb.co/nNNvwDRt/image.png" alt="Naši klienti" style="width: auto; max-width: 100%; max-height: none;">
+                    <img src="https://i.ibb.co/nNNvwDRt/image.png" alt="Naši klienti" style="width: 95%; max-width: 1100px; height: auto; max-height: none; filter: none;">
                 </div>
             </div>
 
@@ -872,7 +872,9 @@
             </svg>
         </div>
         <div class="container">
-            <h2>ZÁBAVNÍ SERVIS 365 <i class="fa-solid fa-paw"></i></h2>
+            <div style="margin-bottom: 30px;">
+                <img src="https://i.ibb.co/mrH3mkv8/image.png" alt="Zábavní Servis 365" style="height: 65px; width: auto; object-fit: contain;">
+            </div>
             <form class="contact-form" action="https://formspree.io/f/xjgqwoal" method="POST">
                 <div class="form-row">
                     <input type="text" name="jmeno" placeholder="Jméno a příjmení *" required>
@@ -894,6 +896,29 @@
             </form>
         </div>
     </footer>
+
+    <section class="container" style="margin-top: 50px; margin-bottom: 50px; padding: 40px 20px; background: var(--white); border-top: 4px solid var(--light-cyan); text-align: center;">
+        <div style="max-width: 800px; margin: 0 auto; display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 40px; text-align: left;">
+            <div>
+                <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--cyan); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--orange); padding-bottom: 5px; display: inline-block;">Kontakt</h3>
+                <p style="font-size: 16px; margin-bottom: 8px; color: var(--text-dark); font-family: var(--font-body);">
+                    <strong>E-mail:</strong> <a href="mailto:info@zabavniservis365.cz" style="color: var(--cyan); font-weight: 600; text-decoration: underline;">info@zabavniservis365.cz</a>
+                </p>
+                <p style="font-size: 16px; color: var(--text-dark); font-family: var(--font-body);">
+                    <strong>Mobil:</strong> <a href="tel:+420604600603" style="color: var(--cyan); font-weight: 600; text-decoration: underline;">+420 604 600 603</a>
+                </p>
+            </div>
+            <div>
+                <h3 style="font-family: var(--font-heading); font-size: 24px; color: var(--cyan); margin-bottom: 15px; text-transform: uppercase; border-bottom: 2px solid var(--orange); padding-bottom: 5px; display: inline-block;">Provozovatel</h3>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-dark); font-family: var(--font-body); font-weight: 700;">David Jůna</p>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-gray); font-family: var(--font-body);">IČ: 717 87 615</p>
+                <p style="font-size: 16px; margin-bottom: 5px; color: var(--text-gray); font-family: var(--font-body);">DIČ: CZ7701080046</p>
+                <p style="font-size: 16px; color: var(--text-gray); font-family: var(--font-body); line-height: 1.4;">
+                    <strong>Adresa:</strong> Šífařská 568/18, 147 00 Praha 4 – Hodkovičky
+                </p>
+            </div>
+        </div>
+    </section>
 
     <div id="successModalOverlay" class="modal-overlay" onclick="closeModal()">
         <div class="modal-box" onclick="event.stopPropagation()">
